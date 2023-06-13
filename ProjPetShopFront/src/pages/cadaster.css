@@ -1,0 +1,67 @@
+.cardCad{
+    box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: white;
+    font-size: large;
+    font-weight: bold;
+    border-color: black;
+    border: solid 3px;
+}
+
+.image_details{
+    display: block;
+    margin: auto;
+    width:  50%;
+    height: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .text_details{
+    padding: 10px;
+    margin: auto;
+    color:  black;
+  }
+  
+  .card-pos{
+    margin-top: auto;
+    border-radius: 10px ;
+  }
+
+  #botao-normal{
+    background-color: crimson;
+    border-color: black;
+    font-weight: bold;
+    border: solid 3px;
+  }
+
+  #botao-normal:hover{
+    background-color: brown;
+    border-color: black;
+    color: white;
+    font-weight: bold;
+  }
+
+  #ativo{
+    background-color: greenyellow;
+    color: black;
+    border-color: black;
+    font-weight: bold;
+    border: solid 3px;
+  }
+
+  .labelAcess{
+    
+    padding-right: 10px;
+  }
+
+  .valida-email{
+    font-size: 15px;
+    color: green;
+    font-weight: bold;
+  }
+  .n-valida-email{
+    font-size: 15px;
+    color: crimson;
+    font-weight:bold
+  }

@@ -1,0 +1,33 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.image_details{
+    display: block;
+    margin: auto;
+    width:  50%;
+    height: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .text_details{
+    padding: 10px;
+    margin: auto;
+    color:  black;
+  }
+  
+  .card-pos{
+    margin-top: auto;
+    border-radius: 10px ;
+  }
+
+  .loadingApi{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+  
+
+ 

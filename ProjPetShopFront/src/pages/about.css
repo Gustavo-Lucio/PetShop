@@ -1,0 +1,17 @@
+.name-emp{
+    color: blueviolet;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.title-about{
+    color: purple;
+}
+.text-about{
+    font-size: 20px;
+    font-weight: bolder;
+    color: grey;
+    text-align: center;
+}
+

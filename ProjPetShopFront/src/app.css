@@ -1,0 +1,13 @@
+.nav-bar-edit {
+  padding-top: 23px;
+    color: blueviolet;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav-bar-edit:hover{
+    color: purple;
+    font-size: 24px;
+    font-weight: bold;
+  }
+

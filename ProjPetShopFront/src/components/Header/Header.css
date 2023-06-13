@@ -1,0 +1,74 @@
+.nav-bar-edit {
+  text-decoration: none;
+  padding-top: 23px;
+  color: #764dfa;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-bar-edit:hover {
+  color: purple;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#link {
+  text-decoration: none;
+}
+
+#bt-login {
+  color: white;
+  border-color: #764dfa;
+}
+
+#bt-login:hover {
+  color: #764dfa;
+  font-weight: bold;
+}
+
+#bg-bt {
+  background-color: #764dfa;
+  border: solid 3px white;
+}
+
+#bg-bt:hover {
+  background-color: white;
+  border-color: #764dfa;
+  border-width: 3px;
+}
+
+#bt-cd {
+  background-color: #d4cb2a;
+  color: white;
+  font-weight: bold;
+  border-color: white;
+  border-width: 3px;
+}
+
+#bt-cd:hover {
+  background-color: white;
+  color: #d4cb2a;
+  font-weight: bold;
+  border-color: #d4cb2a;
+  border-width: 3px;
+}
+
+#bt-mp {
+  background-color: #d4332a;
+  color: white;
+  font-weight: bold;
+  border-color: white;
+  border-width: 3px;
+}
+
+#bt-mp:hover {
+  background-color: white;
+  color: #d4332a;
+  font-weight: bold;
+  border-color: #d4332a;
+  border-width: 3px;
+}
+
+#bt-perfil:hover{
+  color: #d4332a;
+}

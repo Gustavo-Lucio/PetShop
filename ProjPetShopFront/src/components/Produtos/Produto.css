@@ -1,0 +1,44 @@
+.image_width{
+   border-radius: 10px; 
+   width: auto;
+   height: auto; 
+   max-width: 259px;
+   max-height: 384px;
+   padding: 5px;
+   margin: auto;
+}
+
+.card_format{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-sinopse{
+    text-align: justify;
+}
+
+.card-nota{
+    position: relative;
+}
+
+.card-img-top{
+    margin: 0px auto;
+}
+
+.loadingApi{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#bt-dt{
+    background-color : #EBA13B;
+    font-weight: bold;
+    border:solid 3px white;
+}
+
+#bt-dt:hover{
+    background-color : white;
+    font-weight: bold;
+    border:solid 3px #EBA13B;
+    color: #EBA13B;
+}
