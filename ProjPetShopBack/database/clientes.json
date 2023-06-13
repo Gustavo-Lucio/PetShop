@@ -1,0 +1,58 @@
+[
+  {
+    "cod": 1,
+    "nome": "João Silva",
+    "endereco": "Rua dos Animais, 123",
+    "telefone": 987654321,
+    "cpf": "111.111.111-11",
+    "nomeCartao": "João Silva",
+    "numeroCartao": "1111 1111 1111 1111",
+    "cvcCartao": "123",
+    "email": "joao@example.com",
+    "senha": "senha123"
+  },
+  {
+    "cod": 2,
+    "nome": "Maria Santos",
+    "endereco": "Avenida dos Bichos, 456",
+    "telefone": 123456789,
+    "cpf": "222.222.222-22",
+    "nomeCartao": "Maria Santos",
+    "numeroCartao": "2222 2222 2222 2222",
+    "cvcCartao": "456",
+    "email": "maria@example.com",
+    "senha": "senha456"
+  },
+  {
+    "cod": 3,
+    "nome": "Maria Silva",
+    "endereco": "Rua das Flores, 123",
+    "telefone": "987654321",
+    "cpf": "123.456.789-00",
+    "nomeCartao": "Maria Silva",
+    "numeroCartao": "1111222233334444",
+    "cvcCartao": "123",
+    "email": "maria.silva@example.com",
+    "senha": "senha123",
+    "imagem": {
+      "data": "BASE64_DA_IMAGEM",
+      "contentType": "image/jpeg"
+    }
+  },
+  {
+    "cod": 4,
+    "nome": "José Santos",
+    "endereco": "Avenida Principal, 456",
+    "telefone": "99998888",
+    "cpf": "987.654.321-00",
+    "nomeCartao": "José Santos",
+    "numeroCartao": "5555666677778888",
+    "cvcCartao": "456",
+    "email": "jose.santos@example.com",
+    "senha": "senha456",
+    "imagem": {
+      "data": "BASE64_DA_IMAGEM",
+      "contentType": "image/jpeg"
+    }
+  }
+]

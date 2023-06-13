@@ -1,0 +1,15 @@
+[
+  {
+    "cod": 1,
+    "nome": "Ração para Cães",
+    "imagem": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+    "descricao": "Ração balanceada para cães de todas as raças",
+    "preco": 29.99,
+    "categoria": 1,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Meu cachorro adora essa ração!", "nota": 5},
+      {"texto": "Recomendo para todos os donos de cachorros.", "nota": 4}
+    ]
+  }
+]

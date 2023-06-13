@@ -1,0 +1,22 @@
+[
+    {
+      "cod": 1,
+      "nome": "Alimentação",
+      "descricao": "Produtos para alimentação de animais"
+    },
+    {
+      "cod": 2,
+      "nome": "Higiene",
+      "descricao": "Produtos de higiene para animais"
+    },
+    {
+      "cod": 3,
+      "nome": "Acessórios",
+      "descricao": "Acessórios para animais de estimação"
+    },
+    {
+      "cod": 4,
+      "nome": "Medicamentos",
+      "descricao": "Medicamentos para animais"
+    }
+  ]
