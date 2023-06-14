@@ -3,7 +3,7 @@
     "cod": 1,
     "nome": "Ração para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração balanceada para cães de todas as raças",
@@ -19,7 +19,7 @@
     "cod": 2,
     "nome": "Ração para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração premium para gatos adultos",
@@ -35,7 +35,7 @@
     "cod": 3,
     "nome": "Petiscos Naturais",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Petiscos saudáveis e naturais para animais de estimação",
@@ -51,7 +51,7 @@
     "cod": 4,
     "nome": "Comida Úmida para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Sachês de comida úmida para cães de todas as idades",
@@ -67,7 +67,7 @@
     "cod": 5,
     "nome": "Ração para Pássaros",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração balanceada para pássaros de estimação",
@@ -83,7 +83,7 @@
     "cod": 6,
     "nome": "Shampoo para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Shampoo suave para higiene dos cães",
@@ -99,7 +99,7 @@
     "cod": 7,
     "nome": "Condicionador para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Condicionador hidratante para gatos",
@@ -115,7 +115,7 @@
     "cod": 8,
     "nome": "Escova para Pelos",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Escova para remoção de pelos soltos",
@@ -131,7 +131,7 @@
     "cod": 9,
     "nome": "Dentes para Cachorros",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Dentes artificiais para cães mastigarem",
@@ -147,7 +147,7 @@
     "cod": 10,
     "nome": "Shampoo para Pássaros",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Shampoo suave para pássaros de estimação",
@@ -163,7 +163,7 @@
     "cod": 11,
     "nome": "Coleira para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Coleira ajustável para cães de todos os tamanhos",
@@ -179,7 +179,7 @@
     "cod": 12,
     "nome": "Arranhador para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Arranhador de sisal para gatos afiarem as unhas",
@@ -195,7 +195,7 @@
     "cod": 13,
     "nome": "Cama para Animais",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Cama macia e confortável para cães e gatos",
@@ -211,7 +211,7 @@
     "cod": 14,
     "nome": "Roupinha para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Roupa quentinha e estilosa para cães",
@@ -227,7 +227,7 @@
     "cod": 15,
     "nome": "Brinquedo para Pássaros",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Brinquedo colorido para entretenimento de pássaros",
@@ -243,7 +243,7 @@
     "cod": 16,
     "nome": "Antipulgas e Carrapatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento para controle de pulgas e carrapatos",
@@ -259,7 +259,7 @@
     "cod": 17,
     "nome": "Vermífugo",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento para eliminação de vermes intestinais",
@@ -275,7 +275,7 @@
     "cod": 18,
     "nome": "Suplemento Vitamínico",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Suplemento vitamínico para cães e gatos",
@@ -291,7 +291,7 @@
     "cod": 19,
     "nome": "Anti-inflamatório",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento para tratamento de inflamações em animais",
@@ -307,7 +307,7 @@
     "cod": 20,
     "nome": "Antibiótico",
     "imagem": {
-      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "data": "C:/Users/DellEng/Desktop/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento antibiótico para tratamento de infecções em animais",

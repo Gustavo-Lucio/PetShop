@@ -4,7 +4,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// var cors = require('cors');
+var cors = require('cors');
+const swaggerUi = require('swagger-ui-express'),
+swaggerDocument = require('./swagger.json');
+
 
 var indexRouter = require('./routes/indexRouter');
 var clientesRouter = require('./routes/clientesRouter');
@@ -21,11 +24,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(
+  '/api-docs',
+  swaggerUi.serve, 
+  swaggerUi.setup(swaggerDocument)
+);
+
 app.use('/', indexRouter);
 app.use('/clientes', clientesRouter);
 app.use('/categorias', categoriasRouter);
 app.use('/produtos', produtosRouter);
 app.use('/pedidos', pedidosRouter);
+app.use(cors())
 
 app.use(function(req, res, next) {
   next(createError(404));
@@ -38,10 +48,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const PORT = 3001
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`)
-});
+// app.listen(PORT, () => {
+//   console.log(`Servidor rodando na porta ${PORT}`)
+// });
 
 module.exports = app;
 
