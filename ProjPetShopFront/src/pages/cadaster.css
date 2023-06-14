@@ -65,3 +65,15 @@
     color: crimson;
     font-weight:bold
   }
+
+input[type="file"] { 
+  
+}
+
+.label-bordered {
+   border: 1px solid #cecece;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+

@@ -2,7 +2,7 @@ import React from 'react';
 import './details.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import AddCarrinho from '../addCarrinho';
+import Checkout from '../components/Checkout';
 
 import Comments from './../components/Comments/index';
 
@@ -51,7 +51,7 @@ function Detalhes() {
                                     <p>Nota: {detalhes.nota} </p>
                                     <p>Quantidade: {detalhes.ano} </p>
 
-                                    <button onClick={() => AddCarrinho(id)}>Adicionar ao carrinho</button>
+                                    <button onClick={() => Checkout(detalhes)}>Adicionar ao carrinho</button>
                                 </div>
                             </div>
                         </div>
