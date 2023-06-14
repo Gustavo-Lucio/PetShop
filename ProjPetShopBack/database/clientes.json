@@ -9,7 +9,11 @@
     "numeroCartao": "1111 1111 1111 1111",
     "cvcCartao": "123",
     "email": "joao@example.com",
-    "senha": "senha123"
+    "senha": "senha123",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
     "cod": 2,
@@ -21,7 +25,11 @@
     "numeroCartao": "2222 2222 2222 2222",
     "cvcCartao": "456",
     "email": "maria@example.com",
-    "senha": "senha456"
+    "senha": "senha456",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    }
   },
   {
     "cod": 3,
@@ -35,7 +43,7 @@
     "email": "maria.silva@example.com",
     "senha": "senha123",
     "imagem": {
-      "data": "BASE64_DA_IMAGEM",
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     }
   },
@@ -51,7 +59,7 @@
     "email": "jose.santos@example.com",
     "senha": "senha456",
     "imagem": {
-      "data": "BASE64_DA_IMAGEM",
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
       "contentType": "image/jpeg"
     }
   }

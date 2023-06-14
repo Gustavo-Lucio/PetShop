@@ -2,7 +2,10 @@
   {
     "cod": 1,
     "nome": "Ração para Cães",
-    "imagem": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
     "descricao": "Ração balanceada para cães de todas as raças",
     "preco": 29.99,
     "categoria": 1,
@@ -10,6 +13,310 @@
     "comentario": [
       {"texto": "Meu cachorro adora essa ração!", "nota": 5},
       {"texto": "Recomendo para todos os donos de cachorros.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 2,
+    "nome": "Ração para Gatos",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Ração premium para gatos adultos",
+    "preco": 19.99,
+    "categoria": 1,
+    "animal": "Gato",
+    "comentario": [
+      {"texto": "Meu gato adora essa ração!", "nota": 5},
+      {"texto": "A qualidade é excelente.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 3,
+    "nome": "Petiscos Naturais",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Petiscos saudáveis e naturais para animais de estimação",
+    "preco": 9.99,
+    "categoria": 1,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Meus animais adoram esses petiscos!", "nota": 5},
+      {"texto": "Ótimo custo-benefício.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 4,
+    "nome": "Comida Úmida para Cães",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Sachês de comida úmida para cães de todas as idades",
+    "preco": 3.99,
+    "categoria": 1,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Meu cachorro não resistiu a essa comida úmida.", "nota": 5},
+      {"texto": "Ótima opção para variar a alimentação do meu pet.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 5,
+    "nome": "Ração para Pássaros",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Ração balanceada para pássaros de estimação",
+    "preco": 14.99,
+    "categoria": 1,
+    "animal": "Pássaro",
+    "comentario": [
+      {"texto": "Meu pássaro adora essa ração!", "nota": 5},
+      {"texto": "Recomendo para todos os donos de pássaros.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 6,
+    "nome": "Shampoo para Cães",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Shampoo suave para higiene dos cães",
+    "preco": 14.99,
+    "categoria": 2,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Deixa o pelo do meu cachorro limpo e cheiroso.", "nota": 5},
+      {"texto": "Excelente qualidade!", "nota": 4}
+    ]
+  },
+  {
+    "cod": 7,
+    "nome": "Condicionador para Gatos",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Condicionador hidratante para gatos",
+    "preco": 9.99,
+    "categoria": 2,
+    "animal": "Gato",
+    "comentario": [
+      {"texto": "Deixa o pelo do meu gato macio e sedoso.", "nota": 5},
+      {"texto": "Ótimo produto para cuidar do pelo do meu felino.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 8,
+    "nome": "Escova para Pelos",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Escova para remoção de pelos soltos",
+    "preco": 6.99,
+    "categoria": 2,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Essa escova é muito eficiente para remover os pelos do meu pet.", "nota": 5},
+      {"texto": "Recomendo para todos os donos de animais de pelo longo.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 9,
+    "nome": "Dentes para Cachorros",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Dentes artificiais para cães mastigarem",
+    "preco": 12.99,
+    "categoria": 2,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Meu cachorro adora mastigar esses dentes!", "nota": 5},
+      {"texto": "Ajuda a manter a higiene bucal do meu pet.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 10,
+    "nome": "Shampoo para Pássaros",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Shampoo suave para pássaros de estimação",
+    "preco": 9.99,
+    "categoria": 2,
+    "animal": "Pássaro",
+    "comentario": [
+      {"texto": "Deixa as penas do meu pássaro brilhantes e limpas.", "nota": 5},
+      {"texto": "Produto de qualidade para cuidar da higiene do meu pássaro.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 11,
+    "nome": "Coleira para Cães",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Coleira ajustável para cães de todos os tamanhos",
+    "preco": 15.99,
+    "categoria": 3,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Essa coleira é resistente e confortável para o meu cão.", "nota": 5},
+      {"texto": "Gosto do design moderno dessa coleira.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 12,
+    "nome": "Arranhador para Gatos",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Arranhador de sisal para gatos afiarem as unhas",
+    "preco": 24.99,
+    "categoria": 3,
+    "animal": "Gato",
+    "comentario": [
+      {"texto": "Meus gatos adoram esse arranhador.", "nota": 5},
+      {"texto": "Ótimo produto para evitar que meus móveis sejam arranhados.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 13,
+    "nome": "Cama para Animais",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Cama macia e confortável para cães e gatos",
+    "preco": 39.99,
+    "categoria": 3,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Meu pet adora dormir nessa cama, é super aconchegante.", "nota": 5},
+      {"texto": "Excelente qualidade e durabilidade.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 14,
+    "nome": "Roupinha para Cães",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Roupa quentinha e estilosa para cães",
+    "preco": 19.99,
+    "categoria": 3,
+    "animal": "Cachorro",
+    "comentario": [
+      {"texto": "Essa roupinha deixa meu cachorro ainda mais fofo.", "nota": 5},
+      {"texto": "Perfeita para os dias frios, meu pet fica bem aquecido.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 15,
+    "nome": "Brinquedo para Pássaros",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Brinquedo colorido para entretenimento de pássaros",
+    "preco": 8.99,
+    "categoria": 3,
+    "animal": "Pássaro",
+    "comentario": [
+      {"texto": "Meu pássaro adora brincar com esse brinquedo.", "nota": 5},
+      {"texto": "Ótimo produto para estimular a atividade do meu pássaro.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 16,
+    "nome": "Antipulgas e Carrapatos",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Medicamento para controle de pulgas e carrapatos",
+    "preco": 29.99,
+    "categoria": 4,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Esse antipulgas é eficaz e seguro para meus pets.", "nota": 5},
+      {"texto": "Nunca mais tive problemas com pulgas desde que comecei a usar esse produto.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 17,
+    "nome": "Vermífugo",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Medicamento para eliminação de vermes intestinais",
+    "preco": 19.99,
+    "categoria": 4,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Esse vermífugo é fácil de administrar e meu pet não apresentou efeitos colaterais.", "nota": 5},
+      {"texto": "Recomendo esse produto para manter meus pets saudáveis.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 18,
+    "nome": "Suplemento Vitamínico",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Suplemento vitamínico para cães e gatos",
+    "preco": 12.99,
+    "categoria": 4,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Esse suplemento ajudou a melhorar a imunidade do meu pet.", "nota": 5},
+      {"texto": "Ótimo produto para manter a saúde e vitalidade dos meus pets.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 19,
+    "nome": "Anti-inflamatório",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Medicamento para tratamento de inflamações em animais",
+    "preco": 34.99,
+    "categoria": 4,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Esse anti-inflamatório ajudou a aliviar a dor do meu pet.", "nota": 5},
+      {"texto": "Recomendo esse medicamento para tratar inflamações em animais.", "nota": 4}
+    ]
+  },
+  {
+    "cod": 20,
+    "nome": "Antibiótico",
+    "imagem": {
+      "data": "C:/Users/kaiqu/Desktop/Ecommerce_Petshop/imgProdutos/produto1.jpg",
+      "contentType": "image/jpeg"
+    },
+    "descricao": "Medicamento antibiótico para tratamento de infecções em animais",
+    "preco": 42.99,
+    "categoria": 4,
+    "animal": "Cachorro, Gato",
+    "comentario": [
+      {"texto": "Esse antibiótico foi eficaz no tratamento da infecção do meu pet.", "nota": 5},
+      {"texto": "Sempre tenho esse medicamento em casa para casos de infecções.", "nota": 4}
     ]
   }
 ]
