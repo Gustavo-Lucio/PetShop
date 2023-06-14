@@ -152,7 +152,16 @@ export default function Cadastro() {
                     </label>
                   </div>
                   <br></br>
-                  <div class="col-sm">
+                  <div class="input-group mb-3" id='inputTeste'>
+                    <input class="form-control" type="file" onChange={handleFileChange} id="inputGroupFile01"></input>
+                    <div class="col-sm">
+                      {selectedFile && (
+                        <p>Arquivo selecionado: {selectedFile.name}</p>
+                      )}
+                      {previewURL && <img src={previewURL} alt="Preview" />}
+                    </div>
+                  </div>
+                  {/* <div class="col-sm">
                     <input className='bt_input' type="file" onChange={handleFileChange} /><p></p>
 
                     <br></br>
@@ -162,7 +171,7 @@ export default function Cadastro() {
                       )}
                       {previewURL && <img src={previewURL} alt="Preview" />}
                     </div>
-                  </div>
+                  </div> */}
                 </form>
                 <br></br>
                 <div className="row">
