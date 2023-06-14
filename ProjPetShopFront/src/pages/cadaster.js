@@ -153,14 +153,14 @@ export default function Cadastro() {
                   </div>
                   <br></br>
                   <div class="col-sm">
-                    <input type="file" onChange={handleFileChange} />
+                    <input className='bt_input' type="file" onChange={handleFileChange} /><p></p>
 
                     <br></br>
                     <div class="col-sm">
-                    {selectedFile && (
-                      <p>Arquivo selecionado: {selectedFile.name}</p>
-                    )}
-                    {previewURL && <img src={previewURL} alt="Preview" />}
+                      {selectedFile && (
+                        <p>Arquivo selecionado: {selectedFile.name}</p>
+                      )}
+                      {previewURL && <img src={previewURL} alt="Preview" />}
                     </div>
                   </div>
                 </form>
