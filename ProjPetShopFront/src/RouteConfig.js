@@ -6,7 +6,7 @@ import Details from './pages/details';
 import Error from './pages/error.js';
 import Cadaster from './pages/cadaster';
 import Perfil from './pages/perfil';
-import Login from './pages/login';
+import Login from './components/Autentica/index';
 import Carrinho from '../src/components/Checkout';
 
 export default function RoutesConfig() {

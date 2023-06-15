@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './cadaster.css'
+import api from '../services/api'
 
 export default function Cadastro() {
   const [nome, setNome] = useState('')
@@ -9,68 +10,27 @@ export default function Cadastro() {
   const [numeroCartao, setNumeroCartao] = useState('')
   const [cvcCartao, setCvcCartao] = useState('')
   const [cpf, setCpf] = useState('')
-  const [login, setLogin] = useState('')
+  const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [isValid, setIsValid] = useState(false)
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [imagem, setImagem] = useState(null)
   const [previewURL, setPreviewURL] = useState('')
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0]
-    setSelectedFile(file)
+  const handleSubmit = (event) => {
+    event.preventDefault()
 
-    if (file) {
-      const imageURL = URL.createObjectURL(file)
-      setPreviewURL(imageURL)
+    const bodyParam = {
+      nome: nome,
+      endereco: endereco,
+      telefone: telefone,
+      cpf: cpf,
+      nomeCartao: nomeCartao,
+      numeroCartao: numeroCartao,
+      cvcCartao: cvcCartao,
+      email: email,
+      senha: senha,
+      imagem: imagem,
     }
-  }
-
-  const validaEmail = (login) => {
-    // Regex para validar o formato do e-mail
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-    return emailRegex.test(login)
-  }
-
-  function handleLoginChange(event) {
-    const newEmail = event.target.value
-    // setLogin(event.target.value)
-    setLogin(newEmail)
-    setIsValid(validaEmail(newEmail))
-  }
-
-  function handleSenhaChange(event) {
-    setSenha(event.target.value)
-  }
-
-  function handleNomeChange(event) {
-    setNome(event.target.value)
-  }
-
-  function handleTelefoneChange(event) {
-    setTelefone(event.target.value)
-  }
-
-  function handleEnderecoChange(event) {
-    setEndereco(event.target.value)
-  }
-
-  function handleCpfChange(event) {
-    setCpf(event.target.value)
-  }
-
-  function handleNomeCartaoChange(event) {
-    setNomeCartao(event.target.value)
-  }
-
-  function handleNumeroCartaoChange(event) {
-    setNumeroCartao(event.target.value)
-  }
-
-  function handleCvcChange(event) {
-    setCvcCartao(event.target.value)
-  }
-
-  function handleSubmit() {
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
       return alert('Número do cartão e CVC digitado incorretamente!')
     }
@@ -82,7 +42,43 @@ export default function Cadastro() {
       return alert('CVC do cartão digitado incorretamente!')
     }
 
-    return alert('Cadastro efetuado com sucesso!')
+    api
+      .post('/clientes', bodyParam)
+      .then((response) => {
+        console.log(response.data)
+        alert(' O usuario ' + response.data.codigo + ' foi criado com sucesso!')
+      })
+      .catch((err) => {
+        console.error(err)
+        alert(' Ocorreu um erro! Veja no console ..')
+      })
+      .finally(() => {
+        setNome('')
+        setTelefone('')
+        setEndereco('')
+        setNomeCartao('')
+        setNumeroCartao('')
+        setCvcCartao('')
+        setCpf('')
+        setEmail('')
+        setSenha('')
+        setImagem('')
+      })
+
+    alert('Cadastro efetuado com sucesso!')
+  }
+
+  const validaEmail = (email) => {
+    // Regex para validar o formato do e-mail
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+    return emailRegex.test(email)
+  }
+
+  function handleLoginChange(event) {
+    const newEmail = event.target.value
+    // setLogin(event.target.value)
+    setEmail(newEmail)
+    setIsValid(validaEmail(newEmail))
   }
 
   return (
@@ -91,9 +87,9 @@ export default function Cadastro() {
         <div class="custom-title p-3 pb-md-4 mx-auto text-center">
           <h1 class="display-4 fw-normal">Cadastro de Usuário</h1>
           <div class="row">
-            <div class="col-sm">
+            <form onSubmit={handleSubmit}>
+            <div class="col-sm-6">
               <div className="cardCad">
-                <form onSubmit={handleSubmit}>
                   <div class="form-group">
                     <br></br>
                     <h4> Dados Pessoais</h4>
@@ -102,10 +98,10 @@ export default function Cadastro() {
                       <input
                         type="text"
                         className="form-control"
-                        aria-describedby="emailHelp"
+                        
                         placeholder="Insira o nome"
                         value={nome}
-                        onChange={handleNomeChange}
+                        onChange={(e) => { setNome(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -119,7 +115,7 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o CPF"
                         value={cpf}
-                        onChange={handleCpfChange}
+                        onChange={(e) => { setCpf(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -133,7 +129,7 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o telefone"
                         value={telefone}
-                        onChange={handleTelefoneChange}
+                        onChange={(e) => { setTelefone(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -147,44 +143,29 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o Endereço"
                         value={endereco}
-                        onChange={handleEnderecoChange}
+                        onChange={(e) => { setEndereco(e.target.value) }}
                       />
                     </label>
                   </div>
                   <br></br>
-                  <div class="input-group mb-3" id='inputTeste'>
-                    <input class="form-control" type="file" onChange={handleFileChange} id="inputGroupFile01"></input>
+                  <div class="input-group mb-6" id="inputTeste">
+                    <input
+                      class="form-control"
+                      type="file"
+                      onChange={(e) => { setImagem(e.target.files[0]) }}
+                      id="inputGroupFile01"
+                    ></input>
                     <div class="col-sm">
-                      {selectedFile && (
-                        <p>Arquivo selecionado: {selectedFile.name}</p>
-                      )}
+                      {imagem && <p>Arquivo selecionado: {imagem.nome}</p>}
                       {previewURL && <img src={previewURL} alt="Preview" />}
                     </div>
                   </div>
-                  {/* <div class="col-sm">
-                    <input className='bt_input' type="file" onChange={handleFileChange} /><p></p>
-
-                    <br></br>
-                    <div class="col-sm">
-                      {selectedFile && (
-                        <p>Arquivo selecionado: {selectedFile.name}</p>
-                      )}
-                      {previewURL && <img src={previewURL} alt="Preview" />}
-                    </div>
-                  </div> */}
-                </form>
-                <br></br>
-                <div className="row">
-                  <div class="col-sm"></div>
-                </div>
-                <br></br>
               </div>
             </div>
 
             {/* Dados cartão */}
-            <div class="col-sm">
+            <div class="col-sm-6">
               <div className="cardCad">
-                <form onSubmit={handleSubmit}>
                   <div class="form-group">
                     <br></br>
                     <h4> Dados do Cartão</h4>
@@ -196,7 +177,7 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o nome do cartão"
                         value={nomeCartao}
-                        onChange={handleNomeCartaoChange}
+                        onChange={(e) => { setNomeCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -211,7 +192,7 @@ export default function Cadastro() {
                         className="form-control"
                         placeholder="Insira o número do cartão"
                         value={numeroCartao}
-                        onChange={handleNumeroCartaoChange}
+                        onChange={(e) => { setNumeroCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -227,7 +208,7 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o CVC"
                         value={cvcCartao}
-                        onChange={handleCvcChange}
+                        onChange={(e) => { setCvcCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -240,7 +221,7 @@ export default function Cadastro() {
                         className="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Insira E-mail para login!"
-                        value={login}
+                        value={email}
                         onChange={handleLoginChange}
                       />
                       {isValid ? (
@@ -259,15 +240,16 @@ export default function Cadastro() {
                         aria-describedby="emailHelp"
                         placeholder="Insira senha para acesso!"
                         value={senha}
-                        onChange={handleSenhaChange}
+                        onChange={(e) => { setSenha(e.target.value) }}
                       />
                     </label>
                   </div>
                   <br></br>
-                </form>
+                
                 <br></br>
               </div>
             </div>
+            </form>
           </div>
           <br />
           <br></br>
@@ -280,6 +262,7 @@ export default function Cadastro() {
           </button>
         </div>
       </div>
+      
     </div>
   )
 }

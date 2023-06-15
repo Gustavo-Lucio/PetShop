@@ -1,19 +1,23 @@
 import './Produto.css'
 import React, { useState, useEffect } from 'react'
-import Detalhes from '../../pages/details'
+import api from '../../services/api';
+
 
 function Produtos() {
   const [produtos, setProdutos] = useState(null)
   const [ordena, setOrdena] = useState('nome')
-  const [buscaTitulo, setBuscaTitulo] = useState('')
+  const [buscaProduto, setBuscaProduto] = useState('')
   const [items, setItems] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3001/produtos/')
-      .then((response) => response.json())
-      .then((data) => setProdutos(data))
-      .catch((err) => console.error(err))
-  }, [])
+    api.get('/produtos')
+      .then(response => {
+        setProdutos(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   if (!produtos) {
     const newLocal = <img src="/assets/images/loading-gif.gif"></img>
@@ -40,7 +44,7 @@ function Produtos() {
   })
 
   const filtroProduto = produtos.filter((produtoF) =>
-    produtoF.titulo.toLowerCase().includes(buscaTitulo.toLowerCase()),
+    produtoF.nome.toLowerCase().includes(buscaProduto.toLowerCase()),
   )
 
   return (
@@ -55,8 +59,8 @@ function Produtos() {
               className="form-control"
               type="text"
               placeholder="Busca Produto"
-              value={buscaTitulo}
-              onChange={(event) => setBuscaTitulo(event.target.value)}
+              value={buscaProduto}
+              onChange={(event) => setBuscaProduto(event.target.value)}
             />
             <div className="col-sm"></div>
           </div>
@@ -82,7 +86,7 @@ function Produtos() {
               <div className="card">
                 <div className="image_width">
                   <img
-                    src={`data:image/png;base64,${produto.imagem.toString(
+                    src={`data:Buffer/png;base64,${produto.imagem.toString(
                       'base64',
                     )}`}
                     alt={produto.nome}
@@ -105,6 +109,7 @@ function Produtos() {
                   </a>
                 </div>
               </div>
+              
             </div>
             <br></br>
           </div>
