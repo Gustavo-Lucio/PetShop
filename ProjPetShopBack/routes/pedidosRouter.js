@@ -4,7 +4,7 @@ const pedidoController = require('../controllers/pedidoController');
 
 router.get('/', pedidoController.listar);
 router.post('/', pedidoController.gerarPedido);
-router.get('/:id', pedidoController.buscarPorId);
+router.get('/:cod', pedidoController.buscarPorId);
 router.put('/:id', pedidoController.atualizar);
 router.delete('/:id', pedidoController.excluir);
 
