@@ -1,4 +1,6 @@
 const produtoModel = require('../models/produtoModel');
+const categorias = require("./categorias.json");
+
 const fs = require('fs');
 
 class ProdutoController {

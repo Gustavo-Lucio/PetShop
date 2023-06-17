@@ -3,7 +3,7 @@
     "cod": 1,
     "nome": "Ração para Cães",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto1.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração balanceada para cães de todas as raças",
@@ -19,7 +19,7 @@
     "cod": 2,
     "nome": "Ração para Gatos",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto2.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração premium para gatos adultos",
@@ -35,7 +35,7 @@
     "cod": 3,
     "nome": "Petiscos Naturais",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto3.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Petiscos saudáveis e naturais para animais de estimação",
@@ -51,7 +51,7 @@
     "cod": 4,
     "nome": "Comida Úmida para Cães",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto4.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Sachês de comida úmida para cães de todas as idades",
@@ -67,7 +67,7 @@
     "cod": 5,
     "nome": "Ração para Pássaros",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto5.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Ração balanceada para pássaros de estimação",
@@ -83,7 +83,7 @@
     "cod": 6,
     "nome": "Shampoo para Cães",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto6.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Shampoo suave para higiene dos cães",
@@ -97,9 +97,9 @@
   },
   {
     "cod": 7,
-    "nome": "Condicionador para Gatos",
+    "nome": "Shampoo e Condicionador para Gatos",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto7.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Condicionador hidratante para gatos",
@@ -113,9 +113,9 @@
   },
   {
     "cod": 8,
-    "nome": "Escova para Pelos",
+    "nome": "Luva Tira Pelos Dos Pets",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto8.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Escova para remoção de pelos soltos",
@@ -129,28 +129,28 @@
   },
   {
     "cod": 9,
-    "nome": "Dentes para Cachorros",
+    "nome": "Osso Dental",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto9.jpg",
       "contentType": "image/jpeg"
     },
-    "descricao": "Dentes artificiais para cães mastigarem",
+    "descricao": "Para auxiliar na higiene bucal do seu cão enquanto ele se diverte",
     "preco": 12.99,
     "categoria": 2,
     "animal": "Cachorro",
     "comentario": [
-      {"texto": "Meu cachorro adora mastigar esses dentes!", "nota": 5},
+      {"texto": "Meu cachorro adora mastigar esses ossos!", "nota": 5},
       {"texto": "Ajuda a manter a higiene bucal do meu pet.", "nota": 4}
     ]
   },
   {
     "cod": 10,
-    "nome": "Shampoo para Pássaros",
+    "nome": "Sais de Banho para Aves Ornamentais",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto10.jpg",
       "contentType": "image/jpeg"
     },
-    "descricao": "Shampoo suave para pássaros de estimação",
+    "descricao": "Embeleza as penas de aves ornamentaiso",
     "preco": 9.99,
     "categoria": 2,
     "animal": "Pássaro",
@@ -163,7 +163,7 @@
     "cod": 11,
     "nome": "Coleira para Cães",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto11.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Coleira ajustável para cães de todos os tamanhos",
@@ -179,7 +179,7 @@
     "cod": 12,
     "nome": "Arranhador para Gatos",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto12.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Arranhador de sisal para gatos afiarem as unhas",
@@ -195,7 +195,7 @@
     "cod": 13,
     "nome": "Cama para Animais",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto13.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Cama macia e confortável para cães e gatos",
@@ -211,11 +211,11 @@
     "cod": 14,
     "nome": "Roupinha para Cães",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto14.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Roupa quentinha e estilosa para cães",
-    "preco": 19.99,
+    "preco": 68.99,
     "categoria": 3,
     "animal": "Cachorro",
     "comentario": [
@@ -227,7 +227,7 @@
     "cod": 15,
     "nome": "Brinquedo para Pássaros",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto15.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Brinquedo colorido para entretenimento de pássaros",
@@ -243,7 +243,7 @@
     "cod": 16,
     "nome": "Antipulgas e Carrapatos",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto16.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento para controle de pulgas e carrapatos",
@@ -259,7 +259,7 @@
     "cod": 17,
     "nome": "Vermífugo",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto17.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento para eliminação de vermes intestinais",
@@ -275,7 +275,7 @@
     "cod": 18,
     "nome": "Suplemento Vitamínico",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto18.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Suplemento vitamínico para cães e gatos",
@@ -291,13 +291,13 @@
     "cod": 19,
     "nome": "Anti-inflamatório",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto19.jpg",
       "contentType": "image/jpeg"
     },
-    "descricao": "Medicamento para tratamento de inflamações em animais",
+    "descricao": "Medicamento para tratamento de inflamações em gatos",
     "preco": 34.99,
     "categoria": 4,
-    "animal": "Cachorro, Gato",
+    "animal": "Gato",
     "comentario": [
       {"texto": "Esse anti-inflamatório ajudou a aliviar a dor do meu pet.", "nota": 5},
       {"texto": "Recomendo esse medicamento para tratar inflamações em animais.", "nota": 4}
@@ -307,7 +307,7 @@
     "cod": 20,
     "nome": "Antibiótico",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto20.jpg",
       "contentType": "image/jpeg"
     },
     "descricao": "Medicamento antibiótico para tratamento de infecções em animais",

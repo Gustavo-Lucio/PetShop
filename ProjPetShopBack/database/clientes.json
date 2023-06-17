@@ -11,7 +11,7 @@
       "email": "joao@example.com",
       "senha": "senha123",
       "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente1.jpg",
       "contentType": "image/jpeg"
     }
   },
@@ -27,7 +27,7 @@
     "email": "maria@example.com",
     "senha": "senha456",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente2.jpg",
       "contentType": "image/jpeg"
     }
   },
@@ -43,7 +43,7 @@
     "email": "maria.silva@example.com",
     "senha": "senha123",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente3.jpg",
       "contentType": "image/jpeg"
     }
   },
@@ -59,7 +59,7 @@
     "email": "jose.santos@example.com",
     "senha": "senha456",
     "imagem": {
-      "data": "C:/Users/Gusta/Downloads/PetShop-main/PetShop-main/ProjPetShopBack/imgProdutos/produto1.jpg",
+      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente4.jpg",
       "contentType": "image/jpeg"
     }
   }
