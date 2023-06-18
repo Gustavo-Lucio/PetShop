@@ -1,5 +1,5 @@
 const produtoModel = require('../models/produtoModel');
-const categorias = require("./categorias.json");
+const categoriaModel = require("../models/categoriaModel");
 
 const fs = require('fs');
 
