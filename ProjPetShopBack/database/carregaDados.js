@@ -30,6 +30,7 @@ async function carregarDados() {
           
             await clienteModel.create(cliente);
           }
+          console.log("Carga de clientes concluída!");
 
 
         await categoriaModel.deleteMany({});
@@ -62,6 +63,7 @@ async function carregarDados() {
                     await produtoModel.create(produtoAlterado);
                 });
         }
+        console.log("Carga de produtos concluída!");
 
 
         await pedidoModel.deleteMany({});
@@ -84,7 +86,7 @@ async function carregarDados() {
                 });
         }
 
-        console.log("Carga de produtos concluída!");
+        console.log("Carga de pedidos concluída!");
 
     } catch (err) {
         console.log(err);

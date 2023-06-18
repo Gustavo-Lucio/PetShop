@@ -12,6 +12,7 @@ var cors = require('cors');
 
 
 var indexRouter = require('./routes/indexRouter');
+var loginRouter = require('./routes/loginRouter');
 var clientesRouter = require('./routes/clientesRouter');
 var categoriasRouter = require('./routes/categoriasRouter');
 var produtosRouter = require('./routes/produtosRouter');
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/', indexRouter);
+app.use('/auth', loginRouter);
 app.use('/clientes', clientesRouter);
 app.use('/categorias', categoriasRouter);
 app.use('/produtos', produtosRouter);

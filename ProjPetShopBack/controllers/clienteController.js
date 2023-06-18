@@ -8,6 +8,10 @@ class ClienteController {
 
         try {
 
+            if (await clienteModel.findOne({ 'email': cliente.email })) {
+                res.status(400).send({ error: 'Cliente já cadastrado!' });
+            }
+
             // Obter os dados da imagem
             const imagemPath = req.body.imagem;
             const imagemData = fs.readFileSync(imagemPath);

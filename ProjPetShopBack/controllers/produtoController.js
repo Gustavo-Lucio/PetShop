@@ -9,21 +9,29 @@ class ProdutoController {
         let produto = req.body;
 
         try {
+            await categoriaModel.findOne({ cod: produto.categoria })
+                .then((categoria) => {
+                    produto.categoria = categoria._id;
+                    return produto;
+                })
+                .then(async (produto) => {
 
-            // Obter os dados da imagem
-            const imagemPath = req.body.imagem;
-            const imagemData = fs.readFileSync(imagemPath);
+                    // Obter os dados da imagem
+                    const imagemPath = produto.imagem.data;
+                    const imagemData = fs.readFileSync(imagemPath);
 
-            // Definir os dados da imagem no objeto do cliente
-            cliente.imagem = {
-                data: imagemData,
-                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-            };
+                    // Definir os dados da imagem no objeto do produto
+                    produto.imagem = {
+                        data: imagemData,
+                        contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
+                    };
 
-            const max = await produtoModel.findOne({}).sort({ id: -1 });
-            produto.id = max == null ? 1 : max.id + 1;
-            const resultado = await produtoModel.create(produto);
-            res.status(201).json(resultado);
+                    // await produtoModel.create(produtoAlterado);
+                    const max = await produtoModel.findOne({}).sort({ cod: -1 });
+                    produto.cod = max == null ? 1 : max.cod + 1;
+                    const resultado = await produtoModel.create(produto);
+                    res.status(201).json(resultado);
+                });
 
         } catch (error) {
             console.error(error)
@@ -47,57 +55,68 @@ class ProdutoController {
         }
     }
 
-    async buscarPorId(req, res) {
-        const id = req.params.id;
+    async buscarPorCod(req, res) {
+        const cod = req.params.cod;
 
         try {
-            const resultado = await produtoModel.findOne({ 'id': id });
+            const resultado = await produtoModel.findOne({ 'cod': cod });
 
             if (!resultado) {
-                res.status(404).json({ mensagem: `Produto com ID: ${id} não encontrado!` })
+                res.status(404).json({ mensagem: `Produto com codigo: ${cod} não encontrado!` })
             } else {
                 res.status(200).json(resultado);
             }
         } catch (error) {
             console.error(error)
-            res.status(500).json({ mensagem: 'Erro ao realizar busca por ID.' })
+            res.status(500).json({ mensagem: 'Erro ao realizar busca por Codigo.' })
         }
     }
 
     async atualizar(req, res) {
-        const id = req.params.id;
-    
+        const cod = req.params.cod;
+
         try {
-            const produtoExistente = await produtoModel.findOne({ 'id': id });
-    
+            const produtoExistente = await produtoModel.findOne({ 'cod': cod });
+
             if (!produtoExistente) {
-                res.status(404).json({ mensagem: `Nenhum produto com o ID: ${id} encontrado para alteração!` });
+                res.status(404).json({ mensagem: `Nenhum produto com o codigo: ${cod} encontrado para alteração!` });
                 return;
             }
-    
+
             const _id = String(produtoExistente._id);
             const atualizacao = req.body;
 
             // Verifica se há um campo 'imagem' na requisição PUT
             if (req.body.imagem) {
                 try {
-                    const imagemPath = req.body.imagem;
+
+
+                    // Obter os dados da imagem
+                    const imagemPath = atualizacao.imagem.data;
                     const imagemData = fs.readFileSync(imagemPath);
-    
-                    // Atualiza os dados da imagem no objeto de atualização
+
+                    // Definir os dados da imagem no objeto do produto
                     atualizacao.imagem = {
                         data: imagemData,
                         contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
                     };
+
+
                 } catch (error) {
                     console.error(error);
                     res.status(500).json({ mensagem: 'Erro ao carregar a imagem.' });
                     return;
                 }
-            }            
-    
+            }
+
+            await categoriaModel.findOne({ cod: atualizacao.categoria })
+                .then((categoria) => {
+                    atualizacao.categoria = categoria._id;
+                    return atualizacao;
+                })
+
             await produtoModel.findByIdAndUpdate(String(_id), atualizacao);
-    
+
             res.status(200).json({ mensagem: 'Produto atualizado com sucesso' });
         } catch (error) {
             console.error(error);
@@ -106,14 +125,14 @@ class ProdutoController {
     }
 
     async excluir(req, res) {
-        const id = req.params.id;
+        const cod = req.params.cod;
 
         try {
-            const _id = String((await produtoModel.findOne({ 'id': id }))._id);
+            const _id = String((await produtoModel.findOne({ 'cod': cod }))._id);
             await produtoModel.findByIdAndRemove(String(_id));
 
             if (!_id) {
-                res.status(404).json({ mensagem: `Nenhum produto com o ID: ${_id} encontrado para ser excluido!` })
+                res.status(404).json({ mensagem: `Nenhum produto com o codigo: ${cod} encontrado para ser excluido!` })
             } else {
                 res.status(200).json({ mensagem: `Produto excluido com sucesso` });
             }
