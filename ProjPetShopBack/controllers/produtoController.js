@@ -5,13 +5,12 @@ const fs = require('fs');
 
 class ProdutoController {
 
-    async salvar(req, res) {
+    async cadastrar(req, res) {
         let produto = req.body;
 
         try {
             await categoriaModel.findOne({ cod: produto.categoria })
-                .then((categoria) => {
-                    produto.categoria = categoria._id;
+                .then((categoria) => {produto.categoria = categoria._id;
                     return produto;
                 })
                 .then(async (produto) => {

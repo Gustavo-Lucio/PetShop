@@ -2,30 +2,18 @@ const pedidoModel = require('../models/pedidoModel');
 const clienteModel = require('../models/clienteModel');
 const produtoModel = require('../models/produtoModel');
 const fs = require('fs');
+const auth = require('../auth/auth');
 
 class PedidoController {
 
-    // async gerarPedido(req, res) {
-    //     let pedido = req.body;
-
-    //     try {
-    //         const max = await pedidoModel.findOne({}).sort({ id: -1 });
-    //         pedido.id = max == null ? 1 : max.id + 1;
-    //         const resultado = await pedidoModel.create(pedido);
-    //         res.status(201).json(resultado);
-
-    //     } catch (error) {
-    //         console.error(error)
-    //         res.status(500).json({ mensagem: 'Erro ao realizar cadastro do pedido.' })
-    //     }
-    // }
-
     async gerarPedido(req, res) {
         try {
-          const { clienteId, listaProdutos } = req.body;
-      
+          const { clienteCod } = req.body.cliente;
+          const { listaProdutos } = req.body.listaProdutos;
+
           // Verificar se o cliente existe
-          const cliente = await clienteModel.findById(clienteId);
+          const cliente = await clienteModel.findOne({ cod: clienteCod });
+                    
           if (!cliente) {
             return res.status(404).json({ error: 'Cliente não encontrado' });
           }
@@ -45,7 +33,7 @@ class PedidoController {
           // Criar o objeto do pedido
           const pedido = new pedidoModel({
             cliente: cliente._id,
-            listaProdutos,
+            listaProdutos: cliente.listaProdutos,
             precoTotal,
             status: 'Aguardando Pagamento'
           });
@@ -77,20 +65,20 @@ class PedidoController {
         }
     }
 
-    async buscarPorId(req, res) {
-        const id = req.params.id;
+    async buscarPorCod(req, res) {
+        const cod = req.params.cod;
 
         try {
-            const resultado = await pedidoModel.findOne({ 'id': id });
+            const resultado = await pedidoModel.findOne({ 'cod': cod });
 
             if (!resultado) {
-                res.status(404).json({ mensagem: `Pedido com ID: ${id} não encontrado!` })
+                res.status(404).json({ mensagem: `Pedido com codigo: ${cod} não encontrado!` })
             } else {
                 res.status(200).json(resultado);
             }
         } catch (error) {
             console.error(error)
-            res.status(500).json({ mensagem: 'Erro ao realizar busca por ID.' })
+            res.status(500).json({ mensagem: 'Erro ao realizar busca por codigo.' })
         }
     }
 
@@ -112,13 +100,13 @@ class PedidoController {
     }
 
     async atualizar(req, res) {
-        const id = req.params.id;
+        const cod = req.params.cod;
     
         try {
-            const pedidoExistente = await pedidoModel.findOne({ 'id': id });
+            const pedidoExistente = await pedidoModel.findOne({ 'cod': cod });
     
             if (!pedidoExistente) {
-                res.status(404).json({ mensagem: `Nenhum pedido com o ID: ${id} encontrado para alteração!` });
+                res.status(404).json({ mensagem: `Nenhum pedido com o codigo: ${cod} encontrado para alteração!` });
                 return;
             }
     
@@ -135,14 +123,14 @@ class PedidoController {
     }
 
     async excluir(req, res) {
-        const id = req.params.id;
+        const cod = req.params.cod;
 
         try {
-            const _id = String((await pedidoModel.findOne({ 'id': id }))._id);
+            const _id = String((await pedidoModel.findOne({ 'cod': cod }))._id);
             await pedidoModel.findByIdAndRemove(String(_id));
 
             if (!_id) {
-                res.status(404).json({ mensagem: `Nenhum pedido com o ID: ${_id} encontrado para ser excluido!` })
+                res.status(404).json({ mensagem: `Nenhum pedido com o codigo: ${cod} encontrado para ser excluido!` })
             } else {
                 res.status(200).json({ mensagem: `Pedido excluido com sucesso` });
             }

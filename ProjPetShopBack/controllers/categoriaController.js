@@ -3,13 +3,13 @@ const fs = require('fs');
 
 class CategoriaController {
 
-    async salvar(req, res) {
+    async cadastrar(req, res) {
         let categoria = req.body;
 
         try {
 
-            const max = await categoriaModel.findOne({}).sort({ id: -1 });
-            categoria.id = max == null ? 1 : max.id + 1;
+            const max = await categoriaModel.findOne({}).sort({ cod: -1 });
+            categoria.cod = max == null ? 1 : max.cod + 1;
             const resultado = await categoriaModel.create(categoria);
             res.status(201).json(resultado);
 
@@ -35,31 +35,31 @@ class CategoriaController {
         }
     }
 
-    async buscarPorId(req, res) {
-        const id = req.params.id;
+    async buscarPorCod(req, res) {
+        const cod = req.params.cod;
 
         try {
-            const resultado = await categoriaModel.findOne({ 'id': id });
+            const resultado = await categoriaModel.findOne({ 'cod': cod });
 
             if (!resultado) {
-                res.status(404).json({ mensagem: `categoria com ID: ${id} não encontrado!` })
+                res.status(404).json({ mensagem: `categoria com Codigo: ${cod} não encontrado!` })
             } else {
                 res.status(200).json(resultado);
             }
         } catch (error) {
             console.error(error)
-            res.status(500).json({ mensagem: 'Erro ao realizar busca por ID.' })
+            res.status(500).json({ mensagem: 'Erro ao realizar busca por codigo.' })
         }
     }
 
     async atualizar(req, res) {
-        const id = req.params.id;
+        const cod = req.params.cod;
     
         try {
-            const categoriaExistente = await categoriaModel.findOne({ 'id': id });
+            const categoriaExistente = await categoriaModel.findOne({ 'cod': cod });
     
             if (!categoriaExistente) {
-                res.status(404).json({ mensagem: `Nenhum categoria com o ID: ${id} encontrado para alteração!` });
+                res.status(404).json({ mensagem: `Nenhum categoria com o codigo: ${cod} encontrado para alteração!` });
                 return;
             }
     
@@ -76,14 +76,14 @@ class CategoriaController {
     }
 
     async excluir(req, res) {
-        const id = req.params.id;
+        const cod = req.params.cod;
 
         try {
-            const _id = String((await categoriaModel.findOne({ 'id': id }))._id);
+            const _id = String((await categoriaModel.findOne({ 'cod': cod }))._id);
             await categoriaModel.findByIdAndRemove(String(_id));
 
             if (!_id) {
-                res.status(404).json({ mensagem: `Nenhum categoria com o ID: ${_id} encontrado para ser excluido!` })
+                res.status(404).json({ mensagem: `Nenhum categoria com o codigo: ${cod} encontrado para ser excluido!` })
             } else {
                 res.status(200).json({ mensagem: `Categoria excluido com sucesso` });
             }

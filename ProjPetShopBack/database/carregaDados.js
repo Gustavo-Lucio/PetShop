@@ -14,6 +14,9 @@ const produtos = require("./produtos.json");
 const pedidoModel = require("../models/pedidoModel");
 const pedidos = require("./pedidos.json");
 
+const auth = require('../auth/auth');
+const bcryptjs = require('bcryptjs');
+
 async function carregarDados() {
     try {
         await clienteModel.deleteMany({});
@@ -21,16 +24,18 @@ async function carregarDados() {
             // Obter os dados da imagem do cliente
             const imagemPath = cliente.imagem.data;
             const imagemData = fs.readFileSync(imagemPath);
-          
+
             // Definir os dados da imagem no objeto do cliente
             cliente.imagem = {
-              data: imagemData,
-              contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
+                data: imagemData,
+                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
             };
-          
-            await clienteModel.create(cliente);
-          }
-          console.log("Carga de clientes concluída!");
+
+            // Criptografar a senha antes de salvar no banco de dados
+            clienteModel.create(await auth.gerarHash(cliente));
+
+        }
+        console.log("Carga de clientes concluída!");
 
 
         await categoriaModel.deleteMany({});
@@ -68,10 +73,8 @@ async function carregarDados() {
 
         await pedidoModel.deleteMany({});
         for (const pedido of pedidos) {
-            await clienteModel
-                .findOne({ cod: pedido.cliente })
-                .then((cliente) => {
-                    pedido.cliente = cliente._id;
+            await clienteModel.findOne({ cod: pedido.cliente })
+                .then((cliente) => {pedido.cliente = cliente._id;
                     return pedido;
                 })
                 .then(async (pedidoAlterado) => {

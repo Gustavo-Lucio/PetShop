@@ -3,8 +3,8 @@ const router = express.Router();
 const categoriaController = require('../controllers/categoriaController');
 
 router.get('/', categoriaController.listar);
-router.post('/', categoriaController.salvar);
-router.get('/:cod', categoriaController.buscarPorId);
+router.post('/', categoriaController.cadastrar);
+router.get('/:cod', categoriaController.buscarPorCod);
 router.put('/:cod', categoriaController.atualizar);
 router.delete('/:cod', categoriaController.excluir);
 
