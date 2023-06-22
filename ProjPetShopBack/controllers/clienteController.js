@@ -1,5 +1,6 @@
 const clienteModel = require('../models/clienteModel');
 const fs = require('fs');
+const auth = require('../auth/auth');
 
 class ClienteController {
 
@@ -11,18 +12,11 @@ class ClienteController {
                 res.status(400).send({ error: 'Cliente já cadastrado!' });
             }
 
-            // Obter os dados da imagem
-            const imagemPath = req.body.imagem;
-            const imagemData = fs.readFileSync(imagemPath);
-
-            // Definir os dados da imagem no objeto do cliente
-            cliente.imagem = {
-                data: imagemData,
-                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-            };
-
             const max = await clienteModel.findOne({}).sort({ cod: -1 });
             cliente.cod = max == null ? 1 : max.cod + 1;
+
+            const imagem = req.file.buffer;
+            cliente.imagem = imagem;
       
             // Criptografar a senha antes de salvar no banco de dados
             cliente = await auth.gerarHash(cliente);
@@ -30,7 +24,7 @@ class ClienteController {
             const resultado = await clienteModel.create(cliente);
       
             // Gerar e incluir o token de autenticação
-            const token = auth.gerarToken(cliente); // Substitua por sua lógica de geração de token
+            const token = auth.incluirToken(cliente); 
             resultado.token = token;
       
             res.status(201).json(resultado);

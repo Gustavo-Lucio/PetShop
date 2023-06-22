@@ -21,22 +21,15 @@ async function carregarDados() {
     try {
         await clienteModel.deleteMany({});
         for (const cliente of clientes) {
-            // Obter os dados da imagem do cliente
-            const imagemPath = cliente.imagem.data;
-            const imagemData = fs.readFileSync(imagemPath);
-
-            // Definir os dados da imagem no objeto do cliente
-            cliente.imagem = {
-                data: imagemData,
-                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-            };
+            
+            // Carregar a imagem do arquivo
+            const arquivoBuffer = fs.readFileSync(cliente.imagem);
+            cliente.imagem = arquivoBuffer;
 
             // Criptografar a senha antes de salvar no banco de dados
             clienteModel.create(await auth.gerarHash(cliente));
-
         }
         console.log("Carga de clientes concluída!");
-
 
         await categoriaModel.deleteMany({});
         for (const categoria of categorias) {
@@ -44,53 +37,32 @@ async function carregarDados() {
         }
         console.log("Carga de categorias concluída!");
 
-
         await produtoModel.deleteMany({});
         for (const produto of produtos) {
-            await categoriaModel
-                .findOne({ cod: produto.categoria })
-                .then((categoria) => {
-                    produto.categoria = categoria._id;
-                    return produto;
-                })
-                .then(async (produtoAlterado) => {
+            const categoria = await categoriaModel.findOne({ cod: produto.categoria });
+            produto.categoria = categoria._id;
 
-                    // Obter os dados da imagem
-                    const imagemPath = produtoAlterado.imagem.data;
-                    const imagemData = fs.readFileSync(imagemPath);
+            // Carregar a imagem do arquivo
+            const arquivoBuffer = fs.readFileSync(produto.imagem);
+            produto.imagem = arquivoBuffer;
 
-                    // Definir os dados da imagem no objeto do produto
-                    produtoAlterado.imagem = {
-                        data: imagemData,
-                        contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-                    };
-
-                    await produtoModel.create(produtoAlterado);
-                });
+            await produtoModel.create(produto);
         }
         console.log("Carga de produtos concluída!");
 
-
         await pedidoModel.deleteMany({});
         for (const pedido of pedidos) {
-            await clienteModel.findOne({ cod: pedido.cliente })
-                .then((cliente) => {pedido.cliente = cliente._id;
-                    return pedido;
-                })
-                .then(async (pedidoAlterado) => {
-                    // Iterar sobre a lista de produtos do pedido
-                    for (const item of pedidoAlterado.listaProdutos) {
-                        // Encontrar o objeto de produto correspondente pelo código
-                        const produto = await produtoModel.findOne({ cod: item.produto });
-                        // Substituir o valor de produto pelo _id correspondente
-                        item.produto = produto._id;
-                    }
-                    await pedidoModel.create(pedidoAlterado);
-                });
+            const cliente = await clienteModel.findOne({ cod: pedido.cliente });
+            pedido.cliente = cliente._id;
+
+            for (const item of pedido.listaProdutos) {
+                const produto = await produtoModel.findOne({ cod: item.produto });
+                item.produto = produto._id;
+            }
+
+            await pedidoModel.create(pedido);
         }
-
         console.log("Carga de pedidos concluída!");
-
     } catch (err) {
         console.log(err);
     } finally {

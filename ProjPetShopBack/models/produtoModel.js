@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const produtoSchema = new mongoose.Schema({
     cod: {type: Number, unique: true},
     nome: String,
-    imagem: {data: Buffer, contentType: String},
+    imagem: {type: Buffer},
     descricao: String,
     preco: Number,
     categoria: {type: mongoose.Schema.Types.ObjectId, ref: 'categorias'},
