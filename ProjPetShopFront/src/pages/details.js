@@ -9,26 +9,24 @@ import Comments from './../components/Comments/index';
 
 function Detalhes() {
     const [detalhes, setDetalhes] = useState();
-    const {id} = useParams();
-  
+    const { id } = useParams();
+
     useEffect(() => {
         api.get(`/produtos/${id}`)
-          .then(response => {
-            setDetalhes(response.data);
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }, []);
-    
+            .then(response => {
+                setDetalhes(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
     if (!detalhes) {
         return <div className="loadingApi">
             <p>Carregando...</p>
-            <img src="/assets/images/loading-gif.gif"></img>
+            <img src="/assets/images/loading-gif.gif" />
         </div>;
     }
-
-    
 
     return (
 
@@ -42,7 +40,13 @@ function Detalhes() {
                     <div className="col-sm">
                         <div className="card" >
                             <div className="image_details">
-                                <img src={detalhes.imagem} alt={detalhes.nome} className="card-img-top" />
+                                <img
+                                    src={`data:image/jpeg;base64,${btoa(
+                                        String.fromCharCode(...detalhes.imagem.data),
+                                    )}`}
+                                    alt={detalhes.nome}
+                                    className="card-img-top"
+                                />
                             </div>
                         </div>
                     </div>
@@ -63,8 +67,8 @@ function Detalhes() {
                     </div>
                 </div>
                 <div className="container text-center">
-            
-                {/* <div className="row">
+
+                    {/* <div className="row">
                     <div className="col-md-3">
                         {detalhes.comentario}
                     </div>
@@ -72,8 +76,8 @@ function Detalhes() {
                         {detalhes.nota}
                     </div>
                 </div> */}
-            
-        </div>
+
+                </div>
             </div>
         </div>
     )
