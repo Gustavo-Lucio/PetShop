@@ -50,5 +50,5 @@ function autorizar(req, res, next){
 module.exports = {
   gerarHash,
   incluirToken,
-  autorizar
+  autorizar,
 };

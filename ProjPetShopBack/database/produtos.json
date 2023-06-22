@@ -3,8 +3,7 @@
     "cod": 1,
     "nome": "Ração para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto1.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto1.jpg"
     },
     "descricao": "Ração balanceada para cães de todas as raças",
     "preco": 29.99,
@@ -19,8 +18,7 @@
     "cod": 2,
     "nome": "Ração para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto2.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto2.jpg"
     },
     "descricao": "Ração premium para gatos adultos",
     "preco": 19.99,
@@ -35,8 +33,7 @@
     "cod": 3,
     "nome": "Petiscos Naturais",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto3.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto3.jpg"
     },
     "descricao": "Petiscos saudáveis e naturais para animais de estimação",
     "preco": 9.99,
@@ -51,8 +48,7 @@
     "cod": 4,
     "nome": "Comida Úmida para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto4.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto4.jpg"
     },
     "descricao": "Sachês de comida úmida para cães de todas as idades",
     "preco": 3.99,
@@ -67,8 +63,7 @@
     "cod": 5,
     "nome": "Ração para Pássaros",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto5.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto5.jpg"
     },
     "descricao": "Ração balanceada para pássaros de estimação",
     "preco": 14.99,
@@ -83,8 +78,7 @@
     "cod": 6,
     "nome": "Shampoo para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto6.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto6.jpg"
     },
     "descricao": "Shampoo suave para higiene dos cães",
     "preco": 14.99,
@@ -99,8 +93,7 @@
     "cod": 7,
     "nome": "Shampoo e Condicionador para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto7.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto7.jpg"
     },
     "descricao": "Condicionador hidratante para gatos",
     "preco": 9.99,
@@ -115,8 +108,7 @@
     "cod": 8,
     "nome": "Luva Tira Pelos Dos Pets",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto8.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto8.jpg"
     },
     "descricao": "Escova para remoção de pelos soltos",
     "preco": 6.99,
@@ -131,8 +123,7 @@
     "cod": 9,
     "nome": "Osso Dental",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto9.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto9.jpg"
     },
     "descricao": "Para auxiliar na higiene bucal do seu cão enquanto ele se diverte",
     "preco": 12.99,
@@ -147,8 +138,7 @@
     "cod": 10,
     "nome": "Sais de Banho para Aves Ornamentais",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto10.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto10.jpg"
     },
     "descricao": "Embeleza as penas de aves ornamentaiso",
     "preco": 9.99,
@@ -163,8 +153,7 @@
     "cod": 11,
     "nome": "Coleira para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto11.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto11.jpg"
     },
     "descricao": "Coleira ajustável para cães de todos os tamanhos",
     "preco": 15.99,
@@ -179,8 +168,7 @@
     "cod": 12,
     "nome": "Arranhador para Gatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto12.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto12.jpg"
     },
     "descricao": "Arranhador de sisal para gatos afiarem as unhas",
     "preco": 24.99,
@@ -195,8 +183,7 @@
     "cod": 13,
     "nome": "Cama para Animais",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto13.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto13.jpg"
     },
     "descricao": "Cama macia e confortável para cães e gatos",
     "preco": 39.99,
@@ -211,8 +198,7 @@
     "cod": 14,
     "nome": "Roupinha para Cães",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto14.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto14.jpg"
     },
     "descricao": "Roupa quentinha e estilosa para cães",
     "preco": 68.99,
@@ -227,8 +213,7 @@
     "cod": 15,
     "nome": "Brinquedo para Pássaros",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto15.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto15.jpg"
     },
     "descricao": "Brinquedo colorido para entretenimento de pássaros",
     "preco": 8.99,
@@ -243,8 +228,7 @@
     "cod": 16,
     "nome": "Antipulgas e Carrapatos",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto16.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto16.jpg"
     },
     "descricao": "Medicamento para controle de pulgas e carrapatos",
     "preco": 29.99,
@@ -259,8 +243,7 @@
     "cod": 17,
     "nome": "Vermífugo",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto17.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto17.jpg"
     },
     "descricao": "Medicamento para eliminação de vermes intestinais",
     "preco": 19.99,
@@ -275,8 +258,7 @@
     "cod": 18,
     "nome": "Suplemento Vitamínico",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto18.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto18.jpg"
     },
     "descricao": "Suplemento vitamínico para cães e gatos",
     "preco": 12.99,
@@ -291,8 +273,7 @@
     "cod": 19,
     "nome": "Anti-inflamatório",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto19.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto19.jpg"
     },
     "descricao": "Medicamento para tratamento de inflamações em gatos",
     "preco": 34.99,
@@ -307,8 +288,7 @@
     "cod": 20,
     "nome": "Antibiótico",
     "imagem": {
-      "data": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/produto20.jpg",
-      "contentType": "image/jpeg"
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto20.jpg"
     },
     "descricao": "Medicamento antibiótico para tratamento de infecções em animais",
     "preco": 42.99,

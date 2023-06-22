@@ -6,36 +6,46 @@ const fs = require('fs');
 class ProdutoController {
 
     async cadastrar(req, res) {
+        const max = await produtoModel.findOne({}).sort({ cod: -1 })
+
         let produto = req.body;
+        const arquivo = req.file.buffer;
+        produto.imagem = arquivo
+        // produto.cod = max == null ? 1 : max.cod +1
 
-        try {
-            await categoriaModel.findOne({ cod: produto.categoria })
-                .then((categoria) => {produto.categoria = categoria._id;
-                    return produto;
-                })
-                .then(async (produto) => {
+        const resultado = await produtoModel.create(produto);
+        res.status(201).json(resultado);
 
-                    // Obter os dados da imagem
-                    const imagemPath = produto.imagem.data;
-                    const imagemData = fs.readFileSync(imagemPath);
 
-                    // Definir os dados da imagem no objeto do produto
-                    produto.imagem = {
-                        data: imagemData,
-                        contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-                    };
+        // try {
+        //     await categoriaModel.findOne({ cod: produto.categoria })
+        //         .then((categoria) => {produto.categoria = categoria._id;
+        //             return produto;
+        //         })
+        //         .then(async (produto) => {
 
-                    // await produtoModel.create(produtoAlterado);
-                    const max = await produtoModel.findOne({}).sort({ cod: -1 });
-                    produto.cod = max == null ? 1 : max.cod + 1;
-                    const resultado = await produtoModel.create(produto);
-                    res.status(201).json(resultado);
-                });
+        //             // Obter os dados da imagem
+        //             const imagemPath = produto.imagem.data;
+        //             const imagemData = fs.readFileSync(imagemPath);
+        //             const imagemBase64 = imagemData.toString('base64');
 
-        } catch (error) {
-            console.error(error)
-            res.status(500).json({ mensagem: 'Erro ao realizar cadastro do produto.' })
-        }
+        //             // Definir os dados da imagem no objeto do produto
+        //             produto.imagem = {
+        //                 data: imagemBase64,
+        //                 contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
+        //             };
+
+        //             // await produtoModel.create(produtoAlterado);
+        //             const max = await produtoModel.findOne({}).sort({ cod: -1 });
+        //             produto.cod = max == null ? 1 : max.cod + 1;
+        //             const resultado = await produtoModel.create(produto);
+        //             res.status(201).json(resultado);
+        //         });
+
+        // } catch (error) {
+        //     console.error(error)
+        //     res.status(500).json({ mensagem: 'Erro ao realizar cadastro do produto.' })
+        // }
     }
 
     async listar(req, res) {

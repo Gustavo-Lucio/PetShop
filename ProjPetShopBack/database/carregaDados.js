@@ -24,11 +24,11 @@ async function carregarDados() {
             // Obter os dados da imagem do cliente
             const imagemPath = cliente.imagem.data;
             const imagemData = fs.readFileSync(imagemPath);
+            const imagemBase64 = imagemData.toString('base64');
 
             // Definir os dados da imagem no objeto do cliente
             cliente.imagem = {
-                data: imagemData,
-                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
+                type: imagemPath, // Substitua pelo tipo de conteúdo correto da sua imagem
             };
 
             // Criptografar a senha antes de salvar no banco de dados
@@ -58,10 +58,11 @@ async function carregarDados() {
                     // Obter os dados da imagem
                     const imagemPath = produtoAlterado.imagem.data;
                     const imagemData = fs.readFileSync(imagemPath);
+                    const imagemBase64 = imagemData.toString('base64');
 
                     // Definir os dados da imagem no objeto do produto
                     produtoAlterado.imagem = {
-                        data: imagemData,
+                        data: imagemBase64,
                         contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
                     };
 

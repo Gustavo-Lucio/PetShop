@@ -122,69 +122,6 @@ class PedidoController {
         }
     }
 
-    async faturarPedido(req, res) {
-        const cod = req.params.cod;
-    
-        try {
-            const pedidoExistente = await pedidoModel.findOne({ 'cod': cod });
-    
-            if (!pedidoExistente) {
-                res.status(404).json({ mensagem: `Nenhum pedido com o código: ${cod} encontrado para alteração!` });
-                return;
-            }
-    
-            pedidoExistente.status = 'Faturado';
-            await pedidoExistente.save();
-    
-            res.status(200).json({ mensagem: 'Pedido atualizado com sucesso' });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ mensagem: 'Erro ao realizar a alteração de pedido.' });
-        }
-    }
-
-    async enviarPedido(req, res) {
-        const cod = req.params.cod;
-    
-        try {
-            const pedidoExistente = await pedidoModel.findOne({ 'cod': cod });
-    
-            if (!pedidoExistente) {
-                res.status(404).json({ mensagem: `Nenhum pedido com o código: ${cod} encontrado para alteração!` });
-                return;
-            }
-    
-            pedidoExistente.status = 'Enviado';
-            await pedidoExistente.save();
-    
-            res.status(200).json({ mensagem: 'Pedido atualizado com sucesso' });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ mensagem: 'Erro ao realizar a alteração de pedido.' });
-        }
-    }
-
-    async cancelarPedido(req, res) {
-        const cod = req.params.cod;
-    
-        try {
-            const pedidoExistente = await pedidoModel.findOne({ 'cod': cod });
-    
-            if (!pedidoExistente) {
-                res.status(404).json({ mensagem: `Nenhum pedido com o código: ${cod} encontrado para alteração!` });
-                return;
-            }
-    
-            pedidoExistente.status = 'Cancelado';
-            await pedidoExistente.save();
-    
-            res.status(200).json({ mensagem: 'Pedido atualizado com sucesso' });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ mensagem: 'Erro ao realizar a alteração de pedido.' });
-        }
-    }
-
     async excluir(req, res) {
         const cod = req.params.cod;
 

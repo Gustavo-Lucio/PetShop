@@ -11,8 +11,7 @@ const clienteSchema = new mongoose.Schema({
     cvcCartao: String,
     email: String,
     senha: String,
-    imagem: {data: Buffer, contentType: String},
-    token: {type: String, select: false}
+    imagem: {type: Buffer}
 });
 
 module.exports = mongoose.model('clientes', clienteSchema);

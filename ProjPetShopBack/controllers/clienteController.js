@@ -1,43 +1,21 @@
 const clienteModel = require('../models/clienteModel');
 const fs = require('fs');
+const auth =require('../auth/auth')
 
 class ClienteController {
 
     async cadastrar(req, res) {
-        let cliente = req.body;
 
-        try {
-            if (await clienteModel.findOne({ email: cliente.email })) {
-                res.status(400).send({ error: 'Cliente já cadastrado!' });
-            }
+        const max = await clienteModel.findOne({}).sort({ cod: -1 })
+        const cliente = req.body;
+        cliente.cod = max == null ? 1 : max.cod +1
+       
+        const arquivo = req.file.buffer;
 
-            // Obter os dados da imagem
-            const imagemPath = req.body.imagem;
-            const imagemData = fs.readFileSync(imagemPath);
-
-            // Definir os dados da imagem no objeto do cliente
-            cliente.imagem = {
-                data: imagemData,
-                contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-            };
-
-            const max = await clienteModel.findOne({}).sort({ cod: -1 });
-            cliente.cod = max == null ? 1 : max.cod + 1;
-      
-            // Criptografar a senha antes de salvar no banco de dados
-            cliente = await auth.gerarHash(cliente);
-      
-            const resultado = await clienteModel.create(cliente);
-      
-            // Gerar e incluir o token de autenticação
-            const token = auth.gerarToken(cliente); // Substitua por sua lógica de geração de token
-            resultado.token = token;
-      
-            res.status(201).json(resultado);
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ mensagem: 'Erro ao realizar cadastro do cliente.' });
-        }
+        // cliente.imagem = arquivo.buffer;
+        
+        const resultado = await clienteModel.create(cliente);
+        res.status(201).json(resultado);
     }
 
     async listar(req, res) {
