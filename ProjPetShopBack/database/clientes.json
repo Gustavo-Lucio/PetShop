@@ -10,7 +10,9 @@
       "cvcCartao": "123",
       "email": "joao@example.com",
       "senha": "senha123",
-      "imagem": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente1.jpg"
+      "imagem": {
+      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/cliente1.jpg"
+    }
   },
   {
     "cod": 2,
@@ -23,7 +25,9 @@
     "cvcCartao": "456",
     "email": "maria@example.com",
     "senha": "senha456",
-    "imagem": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente2.jpg"
+    "imagem": {
+      "data": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/cliente2.jpg"
+    }
   },
   {
     "cod": 3,
@@ -36,7 +40,9 @@
     "cvcCartao": "123",
     "email": "maria.silva@example.com",
     "senha": "senha123",
-    "imagem": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente3.jpg"
+    "imagem": {
+      "data": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/cliente3.jpg"
+    }
   },
   {
     "cod": 4,
@@ -49,6 +55,8 @@
     "cvcCartao": "456",
     "email": "jose.santos@example.com",
     "senha": "senha456",
-    "imagem": "C:/Users/kaiqu/OneDrive/Documentos/GitHub/PetShop/ProjPetShopBack/imagens/cliente4.jpg"
+    "imagem": {
+      "data": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/cliente4.jpg"
+    }
   }
 ]

@@ -1,23 +1,23 @@
 import './Produto.css'
 import React, { useState, useEffect } from 'react'
-import api from '../../services/api';
-
+import api from '../../services/api'
 
 function Produtos() {
+  const [categorias, setCategorias] = useState([])
   const [produtos, setProdutos] = useState(null)
   const [ordena, setOrdena] = useState('nome')
   const [buscaProduto, setBuscaProduto] = useState('')
-  const [items, setItems] = useState([])
 
   useEffect(() => {
-    api.get('/produtos')
-      .then(response => {
-        setProdutos(response.data);
+    api
+      .get('/produtos')
+      .then((response) => {
+        setProdutos(response.data)
       })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
 
   if (!produtos) {
     const newLocal = <img src="/assets/images/loading-gif.gif"></img>
@@ -86,17 +86,13 @@ function Produtos() {
               <div className="card">
                 <div className="image_width">
                   <img
-                    src={`data:Buffer/png;base64,${produto.imagem.toString(
-                      'base64',
+                    src={`data:image/jpeg;base64,${btoa(
+                      String.fromCharCode(...produto.imagem.data),
                     )}`}
                     alt={produto.nome}
                     className="card-img-top"
                   />
                 </div>
-                {/* <div className="image_width">
-                  <img src={produto.imagem} alt={produto.nome} className="card-img-top" />
-                  
-                </div> */}
                 <div className="card-body">
                   <h2 className="card-title">{produto.nome}</h2>
                   <br></br>
@@ -109,7 +105,6 @@ function Produtos() {
                   </a>
                 </div>
               </div>
-              
             </div>
             <br></br>
           </div>

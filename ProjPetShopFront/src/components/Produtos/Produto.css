@@ -42,3 +42,15 @@
     border:solid 3px #EBA13B;
     color: #EBA13B;
 }
+
+.previa_imagem{
+    max-width: 350px;
+    max-height: 350px;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+#center{
+    display: flex;
+    justify-content: center;
+}
