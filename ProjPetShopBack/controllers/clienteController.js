@@ -1,22 +1,40 @@
 const clienteModel = require('../models/clienteModel');
 const fs = require('fs');
-const auth =require('../auth/auth')
+const auth = require('../auth/auth')
 
 class ClienteController {
 
     async cadastrar(req, res) {
 
-        const max = await clienteModel.findOne({}).sort({ cod: -1 })
-        const cliente = req.body;
-        cliente.cod = max == null ? 1 : max.cod +1
-       
-        const arquivo = req.file.buffer;
 
-        // cliente.imagem = arquivo.buffer;
+        try{
+        const max = await clienteModel.findOne({}).sort({ cod: -1 })
         
-        const resultado = await clienteModel.create(cliente);
+        let { nome, endereco, telefone, cpf, nomeCartao, numeroCartao, cvcCartao, email, senha } = req.body;
+        let imagem = req.file.buffer;
+
+        const cliente = new clienteModel({
+            cod : max == null ? 1 : max.cod +1,
+            nome, 
+            endereco, 
+            telefone, 
+            cpf, 
+            nomeCartao, 
+            numeroCartao, 
+            cvcCartao, 
+            email, 
+            senha,
+            imagem : Buffer.from(imagem,'base64'),
+        })
+
+       const resultado = clienteModel.create(await auth.gerarHash(cliente))
+
         res.status(201).json(resultado);
-    }
+
+    }catch (error){
+        console.error(error);
+        res.status(500).json({mensagem: 'Erro ao cadastrar o produto.'})}
+}
 
     async listar(req, res) {
 

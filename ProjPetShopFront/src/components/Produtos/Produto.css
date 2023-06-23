@@ -54,3 +54,13 @@
     display: flex;
     justify-content: center;
 }
+
+#dimImagem{
+    max-width: 200;
+    max-height: 200px;
+}
+
+#border-1px{
+    border: solid 1px lightgrey;
+    
+}

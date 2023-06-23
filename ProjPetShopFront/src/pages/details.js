@@ -5,16 +5,25 @@ import { useState, useEffect } from "react";
 import Checkout from '../components/Checkout';
 import api from '../services/api'
 
-import Comments from './../components/Comments/index';
-
 function Detalhes() {
     const [detalhes, setDetalhes] = useState();
     const { id } = useParams();
+    const [categorias, setCategorias] = useState();
 
     useEffect(() => {
         api.get(`/produtos/${id}`)
             .then(response => {
                 setDetalhes(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
+    useEffect(() => {
+        api.get(`/categorias/`)
+            .then(response => {
+                setCategorias(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -28,6 +37,14 @@ function Detalhes() {
         </div>;
     }
 
+    const comentarios = detalhes.comentario;
+    const totalNotas = comentarios.length;
+    const somaNotas = comentarios.reduce((soma, comentario) => soma + comentario.nota, 0);
+    const mediaNotas = totalNotas > 0 ? somaNotas / totalNotas : 0;
+
+    const categoriaSelecionada = categorias.find(categoria => categoria._id === detalhes.categoria);
+    const nomeCategoria = categoriaSelecionada ? categoriaSelecionada.nome : '';
+
     return (
 
         <div>
@@ -40,7 +57,7 @@ function Detalhes() {
                     <div className="col-sm">
                         <div className="card" >
                             <div className="image_details">
-                                <img
+                                <img id="dimImagem"
                                     src={`data:image/jpeg;base64,${btoa(
                                         String.fromCharCode(...detalhes.imagem.data),
                                     )}`}
@@ -54,29 +71,34 @@ function Detalhes() {
                         <div className="card-pos">
                             <div className="card">
                                 <div className="text_details">
-                                    <h1>Produto: {detalhes.nome}</h1>
-                                    <h3>Categoria: {detalhes.categoria} </h3>
+                                    <h3>Produto: {detalhes.nome}</h3>
+                                    <br></br>
+                                    <p>Categoria: {nomeCategoria} </p>
                                     <p>Preço: R${detalhes.preco} </p>
-                                    <p>Nota: {detalhes.nota} </p>
+                                    <p>Nota: {mediaNotas.toFixed(2)}</p>
                                     <p>Quantidade: {detalhes.quantidade} </p>
 
-                                    <button onClick={() => Checkout(detalhes)}>Adicionar ao carrinho</button>
+                                    <button onClick={() => Checkout()}>Adicionar ao carrinho</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <br></br>
                 <div className="container text-center">
-
-                    {/* <div className="row">
-                    <div className="col-md-3">
-                        {detalhes.comentario}
+                    <div className="row">
+                        <div className="card" >
+                            <div className="col-md-12">
+                                <h2>Comentários:</h2>
+                                {detalhes.comentario.map(comentario => (
+                                    <div key={comentario._id}>
+                                        <p>{comentario.texto}</p>
+                                        <p>Nota: {comentario.nota}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-md-9">
-                        {detalhes.nota}
-                    </div>
-                </div> */}
-
                 </div>
             </div>
         </div>

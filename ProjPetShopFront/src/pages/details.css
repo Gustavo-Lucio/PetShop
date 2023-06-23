@@ -28,6 +28,11 @@
     font-weight: bold;
     font-size: 40px;
 }
+
+#dimImagem{
+  max-width: 340px;
+  max-height: 340px;
+}
   
 
  

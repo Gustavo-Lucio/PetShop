@@ -7,7 +7,7 @@ const clienteSchema = new mongoose.Schema({
     telefone: Number,    
     cpf: String,
     nomeCartao: String,
-    numeroCartao: String,
+    numeroCartao: String,   
     cvcCartao: String,
     email: String,
     senha: String,

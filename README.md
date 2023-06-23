@@ -1,7 +1,6 @@
-Desenvolvimento de e-Commerce para Pet Shop
-Utilizando React e NodeJS
+# PetShop
 
-Gustavo Felipe 
+Gustavo Felipe Lucio
 
 Eduardo Graf
 

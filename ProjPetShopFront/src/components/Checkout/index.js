@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import jwt from 'jwt-decode'
-import './Checkout.css'
+import './Checkout.css' 
 
 export default function Checkout() {
 
