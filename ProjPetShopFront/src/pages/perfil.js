@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './perfil.css'
+import api from '../services/api'
 
 export default function Perfil() {
   const [nome, setNome] = useState('')
@@ -9,79 +10,116 @@ export default function Perfil() {
   const [numeroCartao, setNumeroCartao] = useState('')
   const [cvcCartao, setCvcCartao] = useState('')
   const [cpf, setCpf] = useState('')
-  const [login, setLogin] = useState('')
+  const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
   const [isValid, setIsValid] = useState(false)
+  const [imagem, setImagem] = useState(null)
+  const [imagemPreview, setImagemPreview] = useState(null)
 
-  const validaEmail = (login) => {
-    // Regex para validar o formato do e-mail
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-    return emailRegex.test(login)
+  useEffect(() => {
+    // Faça uma chamada à API para obter os dados do perfil atual
+    api.get('/clientes/1')
+      .then(response => {
+        const { nome, telefone, endereco, nomeCartao, numeroCartao, cvcCartao, cpf, senha, email, imagem } = response.data;
+        setNome(nome);
+        setTelefone(telefone);
+        setEndereco(endereco);
+        setNomeCartao(nomeCartao);
+        setNumeroCartao(numeroCartao);
+        setCvcCartao(cvcCartao);
+        setCpf(cpf);
+        setSenha(senha);
+        setEmail(email);
+        setImagem(imagem)
+      })
+      .catch(error => {
+        console.error(error);
+        // Lógica de tratamento de erro
+      });
+  }, []);
+
+  const handleImagemChange = (event) => {
+    const file = event.target.files[0];
+    setImagemPreview(URL.createObjectURL(file));
+    setImagem(file);
   }
 
-  function handleLoginChange(event) {
-    const newEmail = event.target.value
-    // setLogin(event.target.value)
-    setLogin(newEmail)
-    setIsValid(validaEmail(newEmail))
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  function handleSenhaChange(event) {
-    setSenha(event.target.value)
-  }
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('endereco', endereco);
+    formData.append('telefone', telefone);
+    formData.append('cpf', cpf);
+    formData.append('nomeCartao', nomeCartao);
+    formData.append('numeroCartao', numeroCartao);
+    formData.append('cvcCartao', cvcCartao);
+    formData.append('email', email);
+    formData.append('senha', senha);
+    formData.append('imagem', imagem);
 
-  function handleNomeChange(event) {
-    setNome(event.target.value)
-  }
-
-  function handleTelefoneChange(event) {
-    setTelefone(event.target.value)
-  }
-
-  function handleEnderecoChange(event) {
-    setEndereco(event.target.value)
-  }
-
-  function handleCpfChange(event) {
-    setCpf(event.target.value)
-  }
-
-  function handleNomeCartaoChange(event) {
-    setNomeCartao(event.target.value)
-  }
-
-  function handleNumeroCartaoChange(event) {
-    setNumeroCartao(event.target.value)
-  }
-
-  function handleCvcChange(event) {
-    setCvcCartao(event.target.value)
-  }
-
-  function handleSubmit() {
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
-      return alert('Número do cartão e CVC digitado incorretamente!')
+      return alert('Número do cartão e CVC digitado incorretamente!');
     }
     if (numeroCartao.length < 20) {
-      return alert('Número do cartão digitado incorretamente!')
+      return alert('Número do cartão digitado incorretamente!');
     }
 
     if (cvcCartao.length < 3) {
-      return alert('CVC do cartão digitado incorretamente!')
+      return alert('CVC do cartão digitado incorretamente!');
     }
 
-    return alert('Cadastro efetuado com sucesso!')
+
+    fetch
+      ('http://localhost:3001/clientes/1', {
+        method: 'PUT',
+        body: formData
+      })
+    // api.put('/clientes/1', formData)
+      .then(response => {
+        console.log(response.data);
+        alert('O usuário foi alterado com sucesso!');
+        // Limpar os campos após a alteração
+        setNome('');
+        setTelefone('');
+        setEndereco('');
+        setNomeCartao('');
+        setNumeroCartao('');
+        setCvcCartao('');
+        setCpf('');
+        setEmail('');
+        setSenha('');
+        setImagem(null);
+        setImagemPreview(null);
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Ocorreu um erro! Veja no console ..');
+      });
+  }
+
+  const validaEmail = (email) => {
+    // Regex para validar o formato do e-mail
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return emailRegex.test(email);
+  }
+
+  function handleLoginChange(event) {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    setIsValid(validaEmail(newEmail));
   }
 
   return (
     <div className="form-custom">
       <div className="container text-center">
         <div class="custom-title p-3 pb-md-4 mx-auto text-center">
-          <h1 class="display-4 fw-normal">Meu perfil</h1>
-          <div class="row">
-            <div class="col-sm">
-              <div className="cardCad">
-                <form onSubmit={handleSubmit}>
+          <h1 class="display-4 fw-normal">Meu Perfil</h1>
+          <form onSubmit={handleSubmit}>
+            <div class="row">
+              <div class="col-sm-6">
+                <div className="cardCad">
                   <div class="form-group">
                     <br></br>
                     <h4> Dados Pessoais</h4>
@@ -90,38 +128,9 @@ export default function Perfil() {
                       <input
                         type="text"
                         className="form-control"
-                        aria-describedby="emailHelp"
                         placeholder="Insira o nome"
                         value={nome}
-                        onChange={handleNomeChange}
-                      />
-                    </label>
-                  </div>
-                  <br />
-                  <div class="form-group">
-                    <label>
-                      Telefone:
-                      <input
-                        type="text"
-                        className="form-control"
-                        aria-describedby="emailHelp"
-                        placeholder="Insira o telefone"
-                        value={telefone}
-                        onChange={handleTelefoneChange}
-                      />
-                    </label>
-                  </div>
-                  <br />
-                  <div class="form-group">
-                    <label>
-                      Endereço:
-                      <input
-                        type="text"
-                        className="form-control"
-                        aria-describedby="emailHelp"
-                        placeholder="Insira o Endereço"
-                        value={endereco}
-                        onChange={handleEnderecoChange}
+                        onChange={(e) => { setNome(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -135,23 +144,61 @@ export default function Perfil() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o CPF"
                         value={cpf}
-                        onChange={handleCpfChange}
+                        onChange={(e) => { setCpf(e.target.value) }}
                       />
                     </label>
                   </div>
-                </form>
-                <br></br>
-                <div className="row">
-                  <div class="col-sm"></div>
-                </div>
-                <br></br>
-              </div>
-            </div>
+                  <br />
+                  <div class="form-group">
+                    <label>
+                      Telefone:
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Insira o telefone"
+                        value={telefone}
+                        onChange={(e) => { setTelefone(e.target.value) }}
+                      />
+                    </label>
+                  </div>
+                  <br />
+                  <div class="form-group">
+                    <label>
+                      Endereço:
+                      <input
+                        type="text"
+                        className="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Insira o Endereço"
+                        value={endereco}
+                        onChange={(e) => { setEndereco(e.target.value) }}
+                      />
+                    </label>
+                  </div>
+                  <br></br>
+                  <div class="col-sm-12" id="inputTeste">
+                    <input
+                      class="form-control"
+                      type="file"
+                      onChange={handleImagemChange}
+                      id="inputGroupFile01"
+                    ></input>
+                    <br></br>
 
-            {/* Dados cartão */}
-            <div class="col-sm">
-              <div className="cardCad">
-                <form onSubmit={handleSubmit}>
+                    <div id='center'>
+                      {imagemPreview && (
+                        <img src={imagemPreview} alt="Preview" className='previa_imagem' />
+                      )}
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <br></br>
+              {/* Dados cartão */}
+              <div class="col-sm-6">
+                <div className="cardCad">
                   <div class="form-group">
                     <br></br>
                     <h4> Dados do Cartão</h4>
@@ -163,7 +210,7 @@ export default function Perfil() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o nome do cartão"
                         value={nomeCartao}
-                        onChange={handleNomeCartaoChange}
+                        onChange={(e) => { setNomeCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -178,7 +225,7 @@ export default function Perfil() {
                         className="form-control"
                         placeholder="Insira o número do cartão"
                         value={numeroCartao}
-                        onChange={handleNumeroCartaoChange}
+                        onChange={(e) => { setNumeroCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -194,7 +241,7 @@ export default function Perfil() {
                         aria-describedby="emailHelp"
                         placeholder="Insira o CVC"
                         value={cvcCartao}
-                        onChange={handleCvcChange}
+                        onChange={(e) => { setCvcCartao(e.target.value) }}
                       />
                     </label>
                   </div>
@@ -207,17 +254,17 @@ export default function Perfil() {
                         className="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Insira E-mail para login!"
-                        value={login}
+                        value={email}
                         onChange={handleLoginChange}
                       />
                       {isValid ? (
-                        <p className='valida-email'>E-mail é válido.</p>
+                        <p className="valida-email">E-mail é válido.</p>
                       ) : (
-                        <p className='n-valida-email'>E-mail inválido.</p>
+                        <p className="n-valida-email">E-mail inválido.</p>
                       )}
                     </label>
-                    </div>
-                    <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <label>
                       Senha:
                       <input
@@ -226,16 +273,18 @@ export default function Perfil() {
                         aria-describedby="emailHelp"
                         placeholder="Insira senha para acesso!"
                         value={senha}
-                        onChange={handleSenhaChange}
+                        onChange={(e) => { setSenha(e.target.value) }}
                       />
                     </label>
                   </div>
                   <br></br>
-                </form>
-                <br></br>
+
+                  <br></br>
+                </div>
               </div>
+
             </div>
-          </div>
+          </form>
           <br />
           <br></br>
           <button
@@ -243,10 +292,11 @@ export default function Perfil() {
             type="submit"
             onClick={handleSubmit}
           >
-            Atualizar
+            Alterar perfil
           </button>
         </div>
       </div>
+
     </div>
   )
 }

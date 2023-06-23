@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './register.css'
-import api from '../services/api'
 
 export default function Cadastro() {
   const [nome, setNome] = useState('')
@@ -14,24 +13,38 @@ export default function Cadastro() {
   const [senha, setSenha] = useState('')
   const [isValid, setIsValid] = useState(false)
   const [imagem, setImagem] = useState(null)
-  const [imagePreview, setImagePreview] = useState(null);
-  const [imagemURL, setImagemURL] = useState('');
+  const [imagemPreview, setImagemPreview] = useState(null)
+
+  const handleImagemChange = (event) => {
+    const file = event.target.files[0]
+    const reader = new FileReader();
+    setImagemPreview(file);
+    setImagem(file)
+
+    reader.onloadend = () => {
+      setImagemPreview(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const bodyParam = {
-      nome: nome,
-      endereco: endereco,
-      telefone: telefone,
-      cpf: cpf,
-      nomeCartao: nomeCartao,
-      numeroCartao: numeroCartao,
-      cvcCartao: cvcCartao,
-      email: email,
-      senha: senha,
-      imagem: imagemURL,
-    }
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('endereco', endereco);
+    formData.append('telefone', telefone);
+    formData.append('cpf', cpf);
+    formData.append('nomeCartao', nomeCartao);
+    formData.append('numeroCartao', numeroCartao);
+    formData.append('cvcCartao', cvcCartao);
+    formData.append('email', email);
+    formData.append('senha', senha);
+    formData.append('imagem', imagem);
+
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
       return alert('Número do cartão e CVC digitado incorretamente!')
     }
@@ -43,28 +56,31 @@ export default function Cadastro() {
       return alert('CVC do cartão digitado incorretamente!')
     }
 
-    api
-      .post('/clientes', bodyParam)
+    fetch
+      ('http://localhost:3001/clientes', {
+        method: 'POST',
+        body: formData
+      })
       .then((response) => {
         console.log(response.data)
-        alert(' O usuario ' + response.data.codigo + ' foi criado com sucesso!')
+        alert(' O usuario foi criado com sucesso!')
       })
       .catch((err) => {
         console.error(err)
         alert(' Ocorreu um erro! Veja no console ..')
       })
       .finally(() => {
-        // setNome('')
-        // setTelefone('')
-        // setEndereco('')
-        // setNomeCartao('')
-        // setNumeroCartao('')
-        // setCvcCartao('')
-        // setCpf('')
-        // setEmail('')
-        // setSenha('')
-        // setImagem(null)
-        // setImagePreview(null)
+        setNome('')
+        setTelefone('')
+        setEndereco('')
+        setNomeCartao('')
+        setNumeroCartao('')
+        setCvcCartao('')
+        setCpf('')
+        setEmail('')
+        setSenha('')
+        setImagem(null)
+        setImagemPreview(null)
       })
 
     alert('Cadastro efetuado com sucesso!')
@@ -82,22 +98,6 @@ export default function Cadastro() {
     setEmail(newEmail)
     setIsValid(validaEmail(newEmail))
   }
-
-    const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    setImagem(event.target.files[0]);
-    setImagem(file);
-    setImagemURL(URL.createObjectURL(file));
-
-    reader.onloadend = () => {
-      setImagePreview(reader.result);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <div className="form-custom">
@@ -169,14 +169,14 @@ export default function Cadastro() {
                     <input
                       class="form-control"
                       type="file"
-                      onChange={handleImageChange}
+                      onChange={handleImagemChange}
                       id="inputGroupFile01"
                     ></input>
                     <br></br>
 
                     <div id='center'>
-                      {imagePreview && (
-                        <img src={imagePreview} alt="Preview" className='previa_imagem' />
+                      {imagemPreview && (
+                        <img src={imagemPreview} alt="Preview" className='previa_imagem' />
                       )}
                     </div>
 

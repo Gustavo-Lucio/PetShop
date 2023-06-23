@@ -1,9 +1,9 @@
-import Filme from '../components/Produtos/index';
+import Produtos from '../components/Produtos/index';
 
 export default function Home() {
     return (
         <div>
-            <Filme />
+            <Produtos />
         </div>
     )
 }
