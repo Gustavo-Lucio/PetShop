@@ -2,9 +2,7 @@
   {
     "cod": 1,
     "nome": "Ração para Cães",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto1.jpg"
-    },
+    "imagem": "/produto1.jpg",
     "descricao": "Ração balanceada para cães de todas as raças",
     "preco": 29.99,
     "categoria": 1,
@@ -17,9 +15,7 @@
   {
     "cod": 2,
     "nome": "Ração para Gatos",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto2.jpg"
-    },
+    "imagem": "/produto2.jpg",
     "descricao": "Ração premium para gatos adultos",
     "preco": 19.99,
     "categoria": 1,
@@ -32,9 +28,7 @@
   {
     "cod": 3,
     "nome": "Petiscos Naturais",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto3.jpg"
-    },
+    "imagem": "/produto3.jpg",
     "descricao": "Petiscos saudáveis e naturais para animais de estimação",
     "preco": 9.99,
     "categoria": 1,
@@ -47,9 +41,7 @@
   {
     "cod": 4,
     "nome": "Comida Úmida para Cães",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto4.jpg"
-    },
+    "imagem": "/produto4.jpg",
     "descricao": "Sachês de comida úmida para cães de todas as idades",
     "preco": 3.99,
     "categoria": 1,
@@ -62,9 +54,7 @@
   {
     "cod": 5,
     "nome": "Ração para Pássaros",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto5.jpg"
-    },
+    "imagem": "/produto5.jpg",
     "descricao": "Ração balanceada para pássaros de estimação",
     "preco": 14.99,
     "categoria": 1,
@@ -77,9 +67,7 @@
   {
     "cod": 6,
     "nome": "Shampoo para Cães",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto6.jpg"
-    },
+    "imagem": "/produto6.jpg",
     "descricao": "Shampoo suave para higiene dos cães",
     "preco": 14.99,
     "categoria": 2,
@@ -92,9 +80,7 @@
   {
     "cod": 7,
     "nome": "Shampoo e Condicionador para Gatos",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto7.jpg"
-    },
+    "imagem": "/produto7.jpg",
     "descricao": "Condicionador hidratante para gatos",
     "preco": 9.99,
     "categoria": 2,
@@ -107,9 +93,7 @@
   {
     "cod": 8,
     "nome": "Luva Tira Pelos Dos Pets",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto8.jpg"
-    },
+    "imagem": "/produto8.jpg",
     "descricao": "Escova para remoção de pelos soltos",
     "preco": 6.99,
     "categoria": 2,
@@ -122,9 +106,7 @@
   {
     "cod": 9,
     "nome": "Osso Dental",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto9.jpg"
-    },
+    "imagem": "/produto9.jpg",
     "descricao": "Para auxiliar na higiene bucal do seu cão enquanto ele se diverte",
     "preco": 12.99,
     "categoria": 2,
@@ -137,9 +119,7 @@
   {
     "cod": 10,
     "nome": "Sais de Banho para Aves Ornamentais",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto10.jpg"
-    },
+    "imagem": "/produto10.jpg",
     "descricao": "Embeleza as penas de aves ornamentaiso",
     "preco": 9.99,
     "categoria": 2,
@@ -152,9 +132,7 @@
   {
     "cod": 11,
     "nome": "Coleira para Cães",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto11.jpg"
-    },
+    "imagem": "/produto11.jpg",
     "descricao": "Coleira ajustável para cães de todos os tamanhos",
     "preco": 15.99,
     "categoria": 3,
@@ -167,9 +145,7 @@
   {
     "cod": 12,
     "nome": "Arranhador para Gatos",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto12.jpg"
-    },
+    "imagem": "/produto12.jpg",
     "descricao": "Arranhador de sisal para gatos afiarem as unhas",
     "preco": 24.99,
     "categoria": 3,
@@ -182,9 +158,7 @@
   {
     "cod": 13,
     "nome": "Cama para Animais",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto13.jpg"
-    },
+    "imagem": "/produto13.jpg",
     "descricao": "Cama macia e confortável para cães e gatos",
     "preco": 39.99,
     "categoria": 3,
@@ -197,9 +171,7 @@
   {
     "cod": 14,
     "nome": "Roupinha para Cães",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto14.jpg"
-    },
+    "imagem": "/produto14.jpg",
     "descricao": "Roupa quentinha e estilosa para cães",
     "preco": 68.99,
     "categoria": 3,
@@ -212,9 +184,7 @@
   {
     "cod": 15,
     "nome": "Brinquedo para Pássaros",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto15.jpg"
-    },
+    "imagem": "/produto15.jpg",
     "descricao": "Brinquedo colorido para entretenimento de pássaros",
     "preco": 8.99,
     "categoria": 3,
@@ -227,9 +197,7 @@
   {
     "cod": 16,
     "nome": "Antipulgas e Carrapatos",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto16.jpg"
-    },
+    "imagem": "/produto16.jpg",
     "descricao": "Medicamento para controle de pulgas e carrapatos",
     "preco": 29.99,
     "categoria": 4,
@@ -242,9 +210,7 @@
   {
     "cod": 17,
     "nome": "Vermífugo",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto17.jpg"
-    },
+    "imagem": "/produto17.jpg",
     "descricao": "Medicamento para eliminação de vermes intestinais",
     "preco": 19.99,
     "categoria": 4,
@@ -257,9 +223,7 @@
   {
     "cod": 18,
     "nome": "Suplemento Vitamínico",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto18.jpg"
-    },
+    "imagem": "/produto18.jpg",
     "descricao": "Suplemento vitamínico para cães e gatos",
     "preco": 12.99,
     "categoria": 4,
@@ -272,9 +236,7 @@
   {
     "cod": 19,
     "nome": "Anti-inflamatório",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto19.jpg"
-    },
+    "imagem": "/produto19.jpg",
     "descricao": "Medicamento para tratamento de inflamações em gatos",
     "preco": 34.99,
     "categoria": 4,
@@ -287,9 +249,7 @@
   {
     "cod": 20,
     "nome": "Antibiótico",
-    "imagem": {
-      "type": "C:/Users/Gusta/Downloads/PetShop-main/ProjPetShopBack/imagens/produto20.jpg"
-    },
+    "imagem": "/produto20.jpg",
     "descricao": "Medicamento antibiótico para tratamento de infecções em animais",
     "preco": 42.99,
     "categoria": 4,
