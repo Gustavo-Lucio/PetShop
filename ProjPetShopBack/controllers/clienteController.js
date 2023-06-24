@@ -3,9 +3,10 @@ const fs = require('fs');
 const auth = require('../auth/auth')
 
 class ClienteController {
-
+    // Método para cadastrar um novo cliente
     async cadastrar(req, res) {
         try {
+            // Encontra o cliente com o maior código e incrementa o código do novo cliente
             const max = await clienteModel.findOne({}).sort({ cod: -1 });
     
             let { nome, endereco, telefone, cpf, nomeCartao, numeroCartao, cvcCartao, email, senha } = req.body;
@@ -24,11 +25,11 @@ class ClienteController {
                 senha,
                 imagem: Buffer.from(imagem, 'base64'),
             });
-    
+            // Verifica se o cliente já está cadastrado pelo email
             if (await clienteModel.findOne({ 'email': cliente.email })) {          
                 return res.status(400).send({ error: 'Cliente já cadastrado!' });
             }
-    
+            // Cria o novo cliente no banco de dados, gerando o hash da senha e incluindo o token
             const resultado = await clienteModel.create(await auth.gerarHash(cliente));
             auth.incluirToken(resultado);
     
@@ -54,11 +55,12 @@ class ClienteController {
             res.status(500).json({ mensagem: 'Erro durante a listagem.' })
         }
     }
-
+     // Método para buscar um cliente pelo códig
     async buscarPorCod(req, res) {
         const cod = req.params.cod;
 
         try {
+            // Encontra o cliente no banco de dados pelo código
             const resultado = await clienteModel.findOne({ 'cod': cod });
 
             if (!resultado) {
@@ -71,11 +73,12 @@ class ClienteController {
             res.status(500).json({ mensagem: 'Erro ao realizar busca por codigo.' })
         }
     }
-
+    // Método para buscar um cliente pelo nome
     async buscarPorEmail(req, res) {
         const nome = req.params.nome;
 
         try {
+            // Encontra o cliente no banco de dados pelo nome
             const resultado = await clienteModel.findOne({ 'nome': nome });
 
             if (!resultado) {
@@ -88,7 +91,7 @@ class ClienteController {
             res.status(500).json({ mensagem: 'Erro ao realizar busca por nome.' })
         }
     }
-
+    // Método para atualizar um cliente existente
     async atualizar(req, res) {
         const cod = req.params.cod;
     
