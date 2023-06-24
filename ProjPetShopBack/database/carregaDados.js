@@ -18,12 +18,12 @@ const auth = require('../auth/auth');
 
 const path = require('path');
 const caminhoImagens = path.join(__dirname, '../imagens');
-
+// Função para carregar dados iniciais
 async function carregarDados() {
     try {
+        // Remover todos os documentos da coleção "clientes" antes de carregar novos dados
         await clienteModel.deleteMany({});
         for (const cliente of clientes) {
-
             // Carregar a imagem do arquivo
             const arquivoBuffer = fs.readFileSync(caminhoImagens + cliente.imagem);
             cliente.imagem = arquivoBuffer;
@@ -38,7 +38,7 @@ async function carregarDados() {
             await categoriaModel.create(categoria);
         }
         console.log("Carga de categorias concluída!");
-
+          // Remover todos os documentos da coleção "produtos" antes de carregar novos dados
         await produtoModel.deleteMany({});
         for (const produto of produtos) {
             const categoria = await categoriaModel.findOne({ cod: produto.categoria });
@@ -51,7 +51,7 @@ async function carregarDados() {
             await produtoModel.create(produto);
         }
         console.log("Carga de produtos concluída!");
-
+         // Remover todos os documentos da coleção "pedidos" antes de carregar novos dados
         await pedidoModel.deleteMany({});
         for (const pedido of pedidos) {
             const cliente = await clienteModel.findOne({ cod: pedido.cliente });
