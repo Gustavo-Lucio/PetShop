@@ -9,7 +9,7 @@ function Detalhes() {
     const [detalhes, setDetalhes] = useState();
     const { id } = useParams();
     const [categorias, setCategorias] = useState();
-
+    // Carrega os detalhes do produto com o ID fornecido
     useEffect(() => {
         api.get(`/produtos/${id}`)
             .then(response => {
@@ -19,7 +19,7 @@ function Detalhes() {
                 console.error(error);
             });
     }, []);
-
+    // Carrega as categorias disponíveis
     useEffect(() => {
         api.get(`/categorias/`)
             .then(response => {
@@ -31,17 +31,18 @@ function Detalhes() {
     }, []);
 
     if (!detalhes) {
+        // Exibe uma mensagem de carregamento enquanto os detalhes não forem carregados
         return <div className="loadingApi">
             <p>Carregando...</p>
             <img src="/assets/images/loading-gif.gif" />
         </div>;
     }
-
+     // Calcula a média das notas dos comentários
     const comentarios = detalhes.comentario;
     const totalNotas = comentarios.length;
     const somaNotas = comentarios.reduce((soma, comentario) => soma + comentario.nota, 0);
     const mediaNotas = totalNotas > 0 ? somaNotas / totalNotas : 0;
-
+    // Encontra a categoria selecionada do produto
     const categoriaSelecionada = categorias.find(categoria => categoria._id === detalhes.categoria);
     const nomeCategoria = categoriaSelecionada ? categoriaSelecionada.nome : '';
 
