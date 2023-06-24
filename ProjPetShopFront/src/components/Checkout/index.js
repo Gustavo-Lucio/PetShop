@@ -3,7 +3,7 @@ import jwt from 'jwt-decode'
 import './Checkout.css' 
 
 export default function Checkout() {
-
+    // Define os itens do pedido
     const pedidoItems = {
         "total": 285.00,
         "items": [
@@ -47,16 +47,17 @@ export default function Checkout() {
 
         ]
     }
-
+    // Obtém a função navigate para redirecionar após a finalização do pedido
     const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
-
+        // Obtém o token armazenado no localStorage
         const storedToken = localStorage.getItem("token");
 
         if (storedToken) {
             try {
+                // Decodifica o token usando jwt-decode
                 const data = jwt(storedToken)
                 console.log(data)
                 alert("Compra efetuada com sucesso para o cliente codigo: " + data.codigo + ".")
