@@ -7,9 +7,10 @@ const path = require('path');
 const caminhoImagens = path.join(__dirname, '../imagens');
 
 class ProdutoController {
-
+    // Método para cadastrar um novo produto
     async cadastrar(req, res) {
         try {
+            // Obter o último código de produto cadastrado
             const max = await produtoModel.findOne({}).sort({ cod: -1 });
             let produto = req.body;
             produto.cod = max == null ? 1 : max.cod + 1;
@@ -17,10 +18,10 @@ class ProdutoController {
             // Carregar a imagem do arquivo
             const arquivoBuffer = fs.readFileSync(caminhoImagens + produto.imagem);
             produto.imagem = arquivoBuffer;
-
+            // Obter a categoria do produto e substituir o código pelo ID correspondente
             const categoria = await categoriaModel.findOne({ cod: produto.categoria });
             produto.categoria = categoria._id;
-
+            // Criar o novo produto
             const resultado = await produtoModel.create(produto);
             res.status(201).json(resultado);
         } catch (error) {
@@ -28,7 +29,7 @@ class ProdutoController {
             res.status(500).json({ mensagem: 'Erro ao realizar cadastro do produto.' });
         }
     }
-
+    // Método para listar todos os produtos
     async listar(req, res) {
 
         try {
@@ -44,7 +45,7 @@ class ProdutoController {
             res.status(500).json({ mensagem: 'Erro durante a listagem.' })
         }
     }
-
+    // Método para buscar um produto por código
     async buscarPorCod(req, res) {
         const cod = req.params.cod;
 
@@ -61,7 +62,7 @@ class ProdutoController {
             res.status(500).json({ mensagem: 'Erro ao realizar busca por Codigo.' })
         }
     }
-
+    // Método para atualizar um produto existente
     async atualizar(req, res) {
         const cod = req.params.cod;
     
