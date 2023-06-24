@@ -24,7 +24,7 @@
     "cod": 3,
     "precoTotal": 35.99,
     "listaProdutos": [
-      { "produto": 14, "quantidade": 1 },
+      { "produto": 7, "quantidade": 1 },
       { "produto": 5, "quantidade": 1 }
     ],
     "cliente": 4,

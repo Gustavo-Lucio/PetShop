@@ -7,7 +7,7 @@ const upload = multer()
 router.get('/', produtoController.listar);
 router.post('/', upload.single('imagem'),produtoController.cadastrar);
 router.get('/:cod', produtoController.buscarPorCod);
-router.put('/:cod', produtoController.atualizar);
+router.put('/:cod', upload.single('imagem'), produtoController.atualizar);
 router.delete('/:cod', produtoController.excluir);
 
 module.exports = router;

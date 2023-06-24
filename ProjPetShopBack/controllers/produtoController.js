@@ -3,49 +3,30 @@ const categoriaModel = require("../models/categoriaModel");
 
 const fs = require('fs');
 
+const path = require('path');
+const caminhoImagens = path.join(__dirname, '../imagens');
+
 class ProdutoController {
 
     async cadastrar(req, res) {
-        const max = await produtoModel.findOne({}).sort({ cod: -1 })
+        try {
+            const max = await produtoModel.findOne({}).sort({ cod: -1 });
+            let produto = req.body;
+            produto.cod = max == null ? 1 : max.cod + 1;
 
-        let produto = req.body;
-        const arquivo = req.file.buffer;
-        produto.imagem = arquivo
-        // produto.cod = max == null ? 1 : max.cod +1
+            // Carregar a imagem do arquivo
+            const arquivoBuffer = fs.readFileSync(caminhoImagens + produto.imagem);
+            produto.imagem = arquivoBuffer;
 
-        const resultado = await produtoModel.create(produto);
-        res.status(201).json(resultado);
+            const categoria = await categoriaModel.findOne({ cod: produto.categoria });
+            produto.categoria = categoria._id;
 
-
-        // try {
-        //     await categoriaModel.findOne({ cod: produto.categoria })
-        //         .then((categoria) => {produto.categoria = categoria._id;
-        //             return produto;
-        //         })
-        //         .then(async (produto) => {
-
-        //             // Obter os dados da imagem
-        //             const imagemPath = produto.imagem.data;
-        //             const imagemData = fs.readFileSync(imagemPath);
-        //             const imagemBase64 = imagemData.toString('base64');
-
-        //             // Definir os dados da imagem no objeto do produto
-        //             produto.imagem = {
-        //                 data: imagemBase64,
-        //                 contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-        //             };
-
-        //             // await produtoModel.create(produtoAlterado);
-        //             const max = await produtoModel.findOne({}).sort({ cod: -1 });
-        //             produto.cod = max == null ? 1 : max.cod + 1;
-        //             const resultado = await produtoModel.create(produto);
-        //             res.status(201).json(resultado);
-        //         });
-
-        // } catch (error) {
-        //     console.error(error)
-        //     res.status(500).json({ mensagem: 'Erro ao realizar cadastro do produto.' })
-        // }
+            const resultado = await produtoModel.create(produto);
+            res.status(201).json(resultado);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ mensagem: 'Erro ao realizar cadastro do produto.' });
+        }
     }
 
     async listar(req, res) {
@@ -83,50 +64,49 @@ class ProdutoController {
 
     async atualizar(req, res) {
         const cod = req.params.cod;
-
+    
         try {
             const produtoExistente = await produtoModel.findOne({ 'cod': cod });
-
+    
             if (!produtoExistente) {
-                res.status(404).json({ mensagem: `Nenhum produto com o codigo: ${cod} encontrado para alteração!` });
+                res.status(404).json({ mensagem: `Nenhum produto com o código ${cod} encontrado para alteração!` });
                 return;
             }
-
-            const _id = String(produtoExistente._id);
-            const atualizacao = req.body;
-
-            // Verifica se há um campo 'imagem' na requisição PUT
-            if (req.body.imagem) {
-                try {
-
-
-                    // Obter os dados da imagem
-                    const imagemPath = atualizacao.imagem.data;
-                    const imagemData = fs.readFileSync(imagemPath);
-
-                    // Definir os dados da imagem no objeto do produto
-                    atualizacao.imagem = {
-                        data: imagemData,
-                        contentType: 'image/jpg' // Substitua pelo tipo de conteúdo correto da sua imagem
-                    };
-
-
-                } catch (error) {
-                    console.error(error);
-                    res.status(500).json({ mensagem: 'Erro ao carregar a imagem.' });
+    
+            const { nome, descricao, preco, categoria, animal } = req.body;
+            let imagem = produtoExistente.imagem; // Define a imagem como a original por padrão
+    
+            // Verifica se a propriedade 'imagem' existe no req.body
+            if (req.body.hasOwnProperty('imagem')) {
+                // Carrega a nova imagem do arquivo
+                const arquivoBuffer = fs.readFileSync(caminhoImagens + req.body.imagem);
+                imagem = arquivoBuffer;
+            }
+    
+            const atualizacao = {
+                nome,
+                descricao,
+                preco,
+                categoria,
+                animal,
+                imagem,
+            };
+    
+            // Verifica se há um campo 'categoria' na requisição PUT
+            if (categoria) {
+                const categoriaEncontrada = await categoriaModel.findOne({ cod: categoria });
+    
+                if (!categoriaEncontrada) {
+                    res.status(400).json({ mensagem: `Categoria com o código ${categoria} não encontrada!` });
                     return;
                 }
+    
+                atualizacao.categoria = categoriaEncontrada._id;
             }
-
-            await categoriaModel.findOne({ cod: atualizacao.categoria })
-                .then((categoria) => {
-                    atualizacao.categoria = categoria._id;
-                    return atualizacao;
-                })
-
-            await produtoModel.findByIdAndUpdate(String(_id), atualizacao);
-
-            res.status(200).json({ mensagem: 'Produto atualizado com sucesso' });
+    
+            await produtoModel.findOneAndUpdate({ 'cod': cod }, atualizacao);
+    
+            res.status(200).json({ mensagem: 'Produto atualizado com sucesso.' });
         } catch (error) {
             console.error(error);
             res.status(500).json({ mensagem: 'Erro ao realizar alteração de produto.' });

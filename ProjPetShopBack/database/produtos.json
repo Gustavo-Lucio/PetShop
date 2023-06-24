@@ -14,19 +14,6 @@
   },
   {
     "cod": 2,
-    "nome": "Ração para Gatos",
-    "imagem": "/produto2.jpg",
-    "descricao": "Ração premium para gatos adultos",
-    "preco": 19.99,
-    "categoria": 1,
-    "animal": "Gato",
-    "comentario": [
-      {"texto": "Meu gato adora essa ração!", "nota": 5},
-      {"texto": "A qualidade é excelente.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 3,
     "nome": "Petiscos Naturais",
     "imagem": "/produto3.jpg",
     "descricao": "Petiscos saudáveis e naturais para animais de estimação",
@@ -39,33 +26,7 @@
     ]
   },
   {
-    "cod": 4,
-    "nome": "Comida Úmida para Cães",
-    "imagem": "/produto4.jpg",
-    "descricao": "Sachês de comida úmida para cães de todas as idades",
-    "preco": 3.99,
-    "categoria": 1,
-    "animal": "Cachorro",
-    "comentario": [
-      {"texto": "Meu cachorro não resistiu a essa comida úmida.", "nota": 5},
-      {"texto": "Ótima opção para variar a alimentação do meu pet.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 5,
-    "nome": "Ração para Pássaros",
-    "imagem": "/produto5.jpg",
-    "descricao": "Ração balanceada para pássaros de estimação",
-    "preco": 14.99,
-    "categoria": 1,
-    "animal": "Pássaro",
-    "comentario": [
-      {"texto": "Meu pássaro adora essa ração!", "nota": 5},
-      {"texto": "Recomendo para todos os donos de pássaros.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 6,
+    "cod": 3,
     "nome": "Shampoo para Cães",
     "imagem": "/produto6.jpg",
     "descricao": "Shampoo suave para higiene dos cães",
@@ -78,20 +39,7 @@
     ]
   },
   {
-    "cod": 7,
-    "nome": "Shampoo e Condicionador para Gatos",
-    "imagem": "/produto7.jpg",
-    "descricao": "Condicionador hidratante para gatos",
-    "preco": 9.99,
-    "categoria": 2,
-    "animal": "Gato",
-    "comentario": [
-      {"texto": "Deixa o pelo do meu gato macio e sedoso.", "nota": 5},
-      {"texto": "Ótimo produto para cuidar do pelo do meu felino.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 8,
+    "cod": 4,
     "nome": "Luva Tira Pelos Dos Pets",
     "imagem": "/produto8.jpg",
     "descricao": "Escova para remoção de pelos soltos",
@@ -104,33 +52,7 @@
     ]
   },
   {
-    "cod": 9,
-    "nome": "Osso Dental",
-    "imagem": "/produto9.jpg",
-    "descricao": "Para auxiliar na higiene bucal do seu cão enquanto ele se diverte",
-    "preco": 12.99,
-    "categoria": 2,
-    "animal": "Cachorro",
-    "comentario": [
-      {"texto": "Meu cachorro adora mastigar esses ossos!", "nota": 5},
-      {"texto": "Ajuda a manter a higiene bucal do meu pet.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 10,
-    "nome": "Sais de Banho para Aves Ornamentais",
-    "imagem": "/produto10.jpg",
-    "descricao": "Embeleza as penas de aves ornamentaiso",
-    "preco": 9.99,
-    "categoria": 2,
-    "animal": "Pássaro",
-    "comentario": [
-      {"texto": "Deixa as penas do meu pássaro brilhantes e limpas.", "nota": 5},
-      {"texto": "Produto de qualidade para cuidar da higiene do meu pássaro.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 11,
+    "cod": 5,
     "nome": "Coleira para Cães",
     "imagem": "/produto11.jpg",
     "descricao": "Coleira ajustável para cães de todos os tamanhos",
@@ -143,7 +65,7 @@
     ]
   },
   {
-    "cod": 12,
+    "cod": 6,
     "nome": "Arranhador para Gatos",
     "imagem": "/produto12.jpg",
     "descricao": "Arranhador de sisal para gatos afiarem as unhas",
@@ -156,46 +78,7 @@
     ]
   },
   {
-    "cod": 13,
-    "nome": "Cama para Animais",
-    "imagem": "/produto13.jpg",
-    "descricao": "Cama macia e confortável para cães e gatos",
-    "preco": 39.99,
-    "categoria": 3,
-    "animal": "Cachorro, Gato",
-    "comentario": [
-      {"texto": "Meu pet adora dormir nessa cama, é super aconchegante.", "nota": 5},
-      {"texto": "Excelente qualidade e durabilidade.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 14,
-    "nome": "Roupinha para Cães",
-    "imagem": "/produto14.jpg",
-    "descricao": "Roupa quentinha e estilosa para cães",
-    "preco": 68.99,
-    "categoria": 3,
-    "animal": "Cachorro",
-    "comentario": [
-      {"texto": "Essa roupinha deixa meu cachorro ainda mais fofo.", "nota": 5},
-      {"texto": "Perfeita para os dias frios, meu pet fica bem aquecido.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 15,
-    "nome": "Brinquedo para Pássaros",
-    "imagem": "/produto15.jpg",
-    "descricao": "Brinquedo colorido para entretenimento de pássaros",
-    "preco": 8.99,
-    "categoria": 3,
-    "animal": "Pássaro",
-    "comentario": [
-      {"texto": "Meu pássaro adora brincar com esse brinquedo.", "nota": 5},
-      {"texto": "Ótimo produto para estimular a atividade do meu pássaro.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 16,
+    "cod": 7,
     "nome": "Antipulgas e Carrapatos",
     "imagem": "/produto16.jpg",
     "descricao": "Medicamento para controle de pulgas e carrapatos",
@@ -208,7 +91,7 @@
     ]
   },
   {
-    "cod": 17,
+    "cod": 8,
     "nome": "Vermífugo",
     "imagem": "/produto17.jpg",
     "descricao": "Medicamento para eliminação de vermes intestinais",
@@ -221,42 +104,15 @@
     ]
   },
   {
-    "cod": 18,
-    "nome": "Suplemento Vitamínico",
-    "imagem": "/produto18.jpg",
-    "descricao": "Suplemento vitamínico para cães e gatos",
-    "preco": 12.99,
-    "categoria": 4,
-    "animal": "Cachorro, Gato",
+    "nome": "teste de produto",
+    "imagem": "/cliente1.jpg",
+    "descricao": "apenas para teste",
+    "preco": 15.99,
+    "categoria": 2,
+    "animal": "monstro",
     "comentario": [
-      {"texto": "Esse suplemento ajudou a melhorar a imunidade do meu pet.", "nota": 5},
-      {"texto": "Ótimo produto para manter a saúde e vitalidade dos meus pets.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 19,
-    "nome": "Anti-inflamatório",
-    "imagem": "/produto19.jpg",
-    "descricao": "Medicamento para tratamento de inflamações em gatos",
-    "preco": 34.99,
-    "categoria": 4,
-    "animal": "Gato",
-    "comentario": [
-      {"texto": "Esse anti-inflamatório ajudou a aliviar a dor do meu pet.", "nota": 5},
-      {"texto": "Recomendo esse medicamento para tratar inflamações em animais.", "nota": 4}
-    ]
-  },
-  {
-    "cod": 20,
-    "nome": "Antibiótico",
-    "imagem": "/produto20.jpg",
-    "descricao": "Medicamento antibiótico para tratamento de infecções em animais",
-    "preco": 42.99,
-    "categoria": 4,
-    "animal": "Cachorro, Gato",
-    "comentario": [
-      {"texto": "Esse antibiótico foi eficaz no tratamento da infecção do meu pet.", "nota": 5},
-      {"texto": "Sempre tenho esse medicamento em casa para casos de infecções.", "nota": 4}
+      {"texto": "monster rapido", "nota": 5},
+      {"texto": "Monster kill", "nota": 4}
     ]
   }
 ]

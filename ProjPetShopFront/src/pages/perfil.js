@@ -16,9 +16,11 @@ export default function Perfil() {
   const [imagem, setImagem] = useState(null)
   const [imagemPreview, setImagemPreview] = useState(null)
 
+  const clienteId = localStorage.getItem("clienteId")
+
   useEffect(() => {
     // Faça uma chamada à API para obter os dados do perfil atual
-    api.get('/clientes/1')
+    api.get(`/clientes/${clienteId}`)
       .then(response => {
         const { nome, telefone, endereco, nomeCartao, numeroCartao, cvcCartao, cpf, senha, email, imagem } = response.data;
         setNome(nome);
@@ -72,7 +74,7 @@ export default function Perfil() {
 
 
     fetch
-      ('http://localhost:3001/clientes/1', {
+      (`http://localhost:3001/clientes/${clienteId}`, {
         method: 'PUT',
         body: formData
       })

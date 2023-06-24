@@ -16,7 +16,7 @@ class LoginController {
         }
 
         await auth.incluirToken(cliente);
-        res.status(200).json(cliente.token);
+        res.status(200).json(cliente);
     }
 }
 

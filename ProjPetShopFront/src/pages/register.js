@@ -48,7 +48,7 @@ export default function Cadastro() {
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
       return alert('Número do cartão e CVC digitado incorretamente!')
     }
-    if (numeroCartao.length < 20) {
+    if (numeroCartao.length < 16) {
       return alert('Número do cartão digitado incorretamente!')
     }
 
@@ -209,7 +209,7 @@ export default function Cadastro() {
                       <input
                         type="text"
                         data-ls-module="charCounter"
-                        maxlength="20"
+                        maxlength="16"
                         className="form-control"
                         placeholder="Insira o número do cartão"
                         value={numeroCartao}
