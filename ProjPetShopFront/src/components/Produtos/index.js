@@ -7,24 +7,13 @@ function Produtos() {
   const [produtos, setProdutos] = useState(null)
   const [ordena, setOrdena] = useState('nome')
   const [buscaProduto, setBuscaProduto] = useState('')
-  
-  // useEffect(() => {
-  //   api
-  //     .get('/produtos')
-  //     .then((response) => {
-  //       setProdutos(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.error(error)
-  //     })
-  // }, [])
 
   useEffect(() => {
     api.get('/produtos')
       .then(response => {
         const produtosData = response.data;
         const produtosPorCategoria = {};
-  
+
         // Organiza os produtos por categoria
         produtosData.forEach(produto => {
           if (!produtosPorCategoria[produto.categoria]) {
@@ -34,7 +23,7 @@ function Produtos() {
         });
 
         setProdutos(produtosPorCategoria);
-        
+
       })
       .catch(error => {
         console.error(error);
@@ -42,14 +31,14 @@ function Produtos() {
   }, []);
 
   useEffect(() => {
-  api.get('/categorias')
-    .then(response => {
-      setCategorias(response.data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}, []);
+    api.get('/categorias')
+      .then(response => {
+        setCategorias(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   if (!produtos) {
     const newLocal = <img src="/assets/images/loading-gif.gif"></img>
@@ -64,33 +53,6 @@ function Produtos() {
   const handleSortChange = (event) => {
     setOrdena(event.target.value)
   }
-
-  // const ordenaProduto = Object.values(produtos).flat().sort((a, b) => {
-  //   if (ordena === 'nome') {
-  //     return a.nome.localeCompare(b.nome)
-  //   } else if (ordena === 'preco_maior') {
-  //     return a.preco - b.preco
-  //   } else if (ordena === 'preco_menor') {
-  //     return b.preco - a.preco
-  //   }
-  // })
-
-  const ordenaProduto = Object.values(produtos)
-  .flat()
-  .sort((a, b) => {
-    if (ordena === 'nome') {
-      return a.nome.localeCompare(b.nome);
-    } else if (ordena === 'preco_maior') {
-      return parseFloat(a.preco) - parseFloat(b.preco);
-    } else if (ordena === 'preco_menor') {
-      return parseFloat(b.preco) - parseFloat(a.preco);
-    }
-    return 0; // Retorna 0 como fallback para evitar erros
-  });
-
-  const filtroProduto = ordenaProduto.filter((produtoF) =>
-    produtoF.nome.toLowerCase().includes(buscaProduto.toLowerCase()),
-  )
 
   return (
     <div className="container text-center">
@@ -126,46 +88,55 @@ function Produtos() {
         </div>
       </div>
       {categorias.map(categoria => (
-      <div key={categoria._id}>
-        <br></br>
-        <hr></hr>
-        <h1>{categoria.nome}</h1>
-        <br></br>
-        <div className="row">
-          {/* {produtos[categoria._id]?.map(produto => ( */}
-          {produtos[categoria._id]?.filter((produto) =>
-            produto.nome.toLowerCase().includes(buscaProduto.toLowerCase())
-          ).map((produto) => (
-            <div className="col-sm-6" key={produto.cod}>
-            <div className="card_format">
-              <div className="card">
-                <div className="image_width">
-                  <img id='dimImagem'
-                    src={`data:image/jpeg;base64,${btoa(
-                      String.fromCharCode(...produto.imagem.data),
-                    )}`}
-                    alt={produto.nome}
-                    className="card-img-top"
-                  />
-                </div>
-                <div className="card-body">
-                  <h2 className="card-title">{produto.nome}</h2>
-                  <br></br>
-                  <h4>Preço: {produto.preco}</h4>
-                  <br></br>
-                  <a href={`/details/${produto.cod}`}>
-                    <div>
-                      <button className="btn btn-primary">Detalhes</button>
+        <div key={categoria._id}>
+          <br></br>
+          <hr></hr>
+          <h1>{categoria.nome}</h1>
+          <br></br>
+          <div className="row">
+            {/* Executa primeiro a filtragem por categorias, então por busca e por ultimo o tipo de ordenação */}
+            {produtos[categoria._id]?.filter((produto) =>
+              produto.nome.toLowerCase().includes(buscaProduto.toLowerCase())
+            ).sort((a, b) => {
+              if (ordena === 'nome') {
+                return a.nome.localeCompare(b.nome);
+              } else if (ordena === 'preco_maior') {
+                return parseFloat(a.preco) - parseFloat(b.preco);
+              } else if (ordena === 'preco_menor') {
+                return parseFloat(b.preco) - parseFloat(a.preco);
+              }
+              return 0; // Retorna 0 como fallback para evitar erros
+            }).map((produto) => (
+              <div className="col-sm-6" key={produto.cod}>
+                <div className="card_format">
+                  <div className="card">
+                    <div className="image_width">
+                      <img id='dimImagem'
+                        src={`data:image/jpeg;base64,${btoa(
+                          String.fromCharCode(...produto.imagem.data),
+                        )}`}
+                        alt={produto.nome}
+                        className="card-img-top"
+                      />
                     </div>
-                  </a>
+                    <div className="card-body">
+                      <h2 className="card-title">{produto.nome}</h2>
+                      <br></br>
+                      <h4>Preço: {produto.preco}</h4>
+                      <br></br>
+                      <a href={`/details/${produto.cod}`}>
+                        <div>
+                          <button className="btn btn-primary">Detalhes</button>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                 </div>
+                <br></br>
               </div>
-            </div>
-            <br></br>
+            ))}
           </div>
-        ))}
-      </div>
-      </div>
+        </div>
       ))}
     </div>
   )

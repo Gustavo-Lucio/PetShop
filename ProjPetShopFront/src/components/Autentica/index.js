@@ -5,35 +5,58 @@ import { Link } from 'react-router-dom';
 import './autentica.css'
 
 export default function Autentica() {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    function handleSubmit(event) {
-        event.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
-        const bodyParam = {
-            email: email,
-            senha: senha
-        }
-
-        api.post('/auth', bodyParam)
-            .then((response) => {
-                console.log(response.data)
-                alert(" Token gerado para o usuario " + response.data.nome)
-                localStorage.setItem("token", response.data.token);
-                navigate("/");
-            })
-            .catch((err) => {
-                console.error(err.response.data) // Objeto de erro vindo do axios
-                alert(" Ocorreu um erro! " + err.response.data.error)
-            })
-            .finally(() => {
-                setEmail("")
-                setSenha("")
-            })
+    const bodyParam = {
+      email: email,
+      senha: senha
     }
+
+    api.post('/auth', bodyParam)
+      .then(async (response) => {
+        console.log(response.data)
+        alert(" Token gerado para o usuario " + response.data.nome)
+        localStorage.setItem("token", response.data.token);
+
+        await api.get('/clientes')
+          .then((clientesResponse) => {
+            const clientes = clientesResponse.data;
+
+            // Procurar o email correspondente
+            const cliente = clientes.find((cliente) => cliente.email === email);
+
+            if (cliente) {
+              // Armazenar o ID do cliente no localStorage
+              localStorage.setItem("clienteId", cliente.id);
+            } else {
+              alert("O e-mail não foi encontrado na rota /clientes");
+            }
+
+            navigate("/");
+          })
+          .catch((err) => {
+            console.error(err);
+            alert("Ocorreu um erro ao obter a lista de clientes");
+            navigate("/");
+          });
+
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error(err.response.data) // Objeto de erro vindo do axios
+        alert(" Ocorreu um erro! " + err.response.data.error)
+      })
+      .finally(() => {
+        setEmail("")
+        setSenha("")
+      })
+  }
 
   return (
     <div className="form-custom">
