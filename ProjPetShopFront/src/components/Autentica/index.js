@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom';
 import './autentica.css'
 
 export default function Autentica() {
+  // Define os estados para o email e senha
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-
+  
+  // Obtém a função navigate para redirecionar após o login
   const navigate = useNavigate();
-
+  // Manipulador para o envio do formulário de autenticação
   function handleSubmit(event) {
     event.preventDefault();
-
+    // Cria um objeto com os parâmetros de email e senha
     const bodyParam = {
       email: email,
       senha: senha
