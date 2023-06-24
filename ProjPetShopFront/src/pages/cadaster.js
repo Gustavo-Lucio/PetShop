@@ -3,6 +3,7 @@ import './cadaster.css'
 import api from '../services/api'
 
 export default function Cadastro() {
+  // Define variáveis de estado usando useState()
   const [nome, setNome] = useState('')
   const [telefone, setTelefone] = useState('')
   const [endereco, setEndereco] = useState('')
@@ -18,7 +19,7 @@ export default function Cadastro() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-
+    // Cria um objeto com os dados do formulário
     const bodyParam = {
       nome: nome,
       endereco: endereco,
@@ -31,17 +32,19 @@ export default function Cadastro() {
       senha: senha,
       imagem: imagem,
     }
+    // Valida o tamanho do número do cartão e do CVC
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
       return alert('Número do cartão e CVC digitado incorretamente!')
     }
+    // Valida o tamanho do número do cartão
     if (numeroCartao.length < 20) {
       return alert('Número do cartão digitado incorretamente!')
     }
-
+    // Valida o tamanho do CVC
     if (cvcCartao.length < 3) {
       return alert('CVC do cartão digitado incorretamente!')
     }
-
+    // Faz uma requisição POST para o endpoint da API
     api
       .post('/clientes', bodyParam)
       .then((response) => {
@@ -53,6 +56,7 @@ export default function Cadastro() {
         alert(' Ocorreu um erro! Veja no console ..')
       })
       .finally(() => {
+        // Reseta os campos do formulário após o envio
         setNome('')
         setTelefone('')
         setEndereco('')
