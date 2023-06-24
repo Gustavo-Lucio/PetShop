@@ -1,15 +1,18 @@
 import "./Header.css";
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+// Componente para renderizar o botão de cadastro na barra de navegação
 function PagCad() {
     const location = useLocation();
+    // Verifica se o caminho atual é "/register"
+    // Se for, renderiza um botão vazio
     if (location.pathname === "/register") {
         return <button type="button" className="btn btn-primary" id="btHollow">...</button>
     }
+     // Caso contrário, renderiza o botão "Cadastro"
     return <button type="button" className="btn btn-primary" id='bt-cd'>Cadastro</button>
 }
-
+// Componente para o cabeçalho da página
 export default function Header() {
     return (
         <div className="container">
