@@ -5,7 +5,7 @@ const fs = require('fs');
 const auth = require('../auth/auth');
 
 class PedidoController {
-
+    // Método para gerar um novo pedido
     async gerarPedido(req, res) {
         try {
           const { clienteCod } = req.body.cliente;
