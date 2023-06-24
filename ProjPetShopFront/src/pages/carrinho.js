@@ -15,7 +15,7 @@ export default function Carrinho() {
   const [isValid, setIsValid] = useState(false)
 
   function handleSubmit() {}
-
+  // Lógica para tratar o envio do formulário
   return (
     <div className="form-custom">
       <div className="container text-center">
