@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
 const AddCarrinho = () => {
-    // ...
+    // Cria um estado para o carrinho de compras
   
     const [cartItems, setCartItems] = useState([]);
-  
+    // Função para adicionar um item ao carrinho
     const addToCart = (item) => {
+     // Atualiza o estado do carrinho, adicionando o novo item ao array existente
       setCartItems(prevItems => [...prevItems, item]);
     };
   
