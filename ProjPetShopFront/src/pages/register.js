@@ -18,9 +18,12 @@ export default function Cadastro() {
   const handleImagemChange = (event) => {
     const file = event.target.files[0]
     const reader = new FileReader();
+
     setImagemPreview(file);
     setImagem(file)
-
+     // Função para lidar com a alteração de imagem
+    // Define o estado de imagem e imagemPreview com a imagem selecionada pelo usuário
+    // Usa FileReader para exibir uma prévia da imagem selecionada
     reader.onloadend = () => {
       setImagemPreview(reader.result);
     };
@@ -44,6 +47,9 @@ export default function Cadastro() {
     formData.append('email', email);
     formData.append('senha', senha);
     formData.append('imagem', imagem);
+    // Cria um objeto FormData para enviar os dados do formulário
+    // Adiciona os campos e seus valores ao objeto FormData
+
 
     if (numeroCartao.length < 20 && cvcCartao.length < 3) {
       return alert('Número do cartão e CVC digitado incorretamente!')
@@ -96,7 +102,7 @@ export default function Cadastro() {
     const newEmail = event.target.value
     // setLogin(event.target.value)
     setEmail(newEmail)
-    setIsValid(validaEmail(newEmail))
+    setIsValid(validaEmail(newEmail)) // Atualiza o estado de isValid com base na validação do e-mail
   }
 
   return (
