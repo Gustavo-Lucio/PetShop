@@ -16,7 +16,7 @@ export default function Login() {
   }
 
   function handleSubmit() {
-
+  // Lógica para lidar com o envio do formulário de login
   }
   return (
     <div className="form-custom">
